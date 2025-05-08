@@ -1,0 +1,114 @@
+@import url("reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap");
+/*
+.rufina-regular {
+  font-family: "Rufina", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.rufina-bold {
+  font-family: "Rufina", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+ */
+@font-face {
+  font-family: "POORICH";
+  src: url("./fonts/POORICH.TTF") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+} /* POOR RICHARD */
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+} /* PRETENDARD */
+html,
+body {
+  font-size: 62.5%;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.header {
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 9rem;
+  background-color: transparent;
+}
+.header .inner {
+  max-width: 176rem;
+  width: calc(100% - 60px);
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: bisque;
+}
+.header .inner .mobile {
+  display: none;
+}
+.header .inner .logo {
+  max-width: clamp(16rem, 1.29vw + 11.51rem, 18rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .inner .logo a {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .inner .logo a img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.header .inner .nav {
+  font-family: "POORICH";
+}
+.header .inner .nav .menu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.header .inner .nav .menu .menu_icon {
+  /* border: 1px solid #203163; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.header .inner .nav .menu .menu_icon .top {
+  display: block;
+  width: 2.5rem;
+  height: 0.25rem;
+  background-color: #203163;
+}
+.header .inner .nav .menu .menu_icon .center {
+  display: block;
+  width: 1.5rem;
+  height: 0.3rem;
+  background-color: #203163;
+}
+.header .inner .nav .menu .menu_icon .bottom {
+  display: block;
+  width: 2rem;
+  height: 0.25rem;
+  background-color: #203163;
+}
+.header .inner .nav .menu p {
+  font-size: 3.8rem;
+  color: #203163;
+}/*# sourceMappingURL=scott.css.map */
