@@ -38,20 +38,27 @@ html,
 body {
     font-size: 62.5%;
 }
-
-body::-webkit-scrollbar {
+/* 
+ body::-webkit-scrollbar {
     display: none;
-}
-
+}  */ 
+ 
 .header {
     width: 100%;
-    position: relative;
+    height: 9rem;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 999;
-    height: 9rem;
     background-color: transparent;
+    transform: translateY(0);
+    transition: 0.7s;
 
+
+    &.active {
+        transform: translateY(-100%);
+
+    }
 
     .inner {
         max-width: 176rem;
@@ -65,8 +72,9 @@ body::-webkit-scrollbar {
 
         .mobile {
             order: -1;
-            width: 40%;
+            width: 34%;
             height: 100vh;
+            clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 0% 100%);
             background-color: #203163;
             color: #fff;
             position: absolute;
@@ -82,7 +90,7 @@ body::-webkit-scrollbar {
             .mobile_inner {
                 padding: 0 clamp(3rem, 2.5vw, 8rem);
                 margin: 0 auto;
-                
+
 
                 .mobile_header {
                     display: flex;
@@ -93,17 +101,17 @@ body::-webkit-scrollbar {
 
                     h2 {
                         font-family: "Rufina", serif;
-                        font-size: clamp(2.rem, 2.5vw, 4.2rem);
+                        font-size: clamp(2rem, 2.5vw, 4.2rem);
                         white-space: nowrap;
-                        
+
                     }
 
                     .menu {
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        width: 3rem;
-                        height: 3rem;
+                        width: clamp(3rem, 0.38vw + 2.85rem, 3.6rem);
+                        height: clamp(3rem, 0.38vw + 2.85rem, 3.6rem);
 
                         img {
                             width: 100%;
@@ -145,16 +153,17 @@ body::-webkit-scrollbar {
                                 color: rgba(255, 255, 255, 0.7);
                                 margin-bottom: 2rem;
                                 padding-left: 2rem;
+
                                 a {
                                     display: block;
-                                        
+
                                 }
 
                                 &:hover {
                                     color: #fff;
                                 }
                             }
-                        
+
                         }
                     }
                 }
@@ -198,19 +207,19 @@ body::-webkit-scrollbar {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    width: 3rem;
-                    height: 3rem;
+                    width: clamp(3rem, 0.38vw + 2.85rem, 3.6rem);
+                    height: clamp(3rem, 0.38vw + 2.85rem, 3.6rem);
 
                     img {
                         width: 100%;
                         height: 100%;
+                        object-fit: cover;
                     }
                 }
 
                 p {
-                    font-size: 3rem;
+                    font-size: clamp(3rem, 0.38vw + 2.85rem, 3.6rem);
                     color: #203163;
-                    font-weight: 500;
                 }
             }
         }
@@ -222,8 +231,8 @@ body::-webkit-scrollbar {
 
             a {
                 display: block;
-                width: 3rem;
-                height: 3rem;
+                width: clamp(3rem, 0.38vw + 2.85rem, 3.6rem);
+                height: clamp(3rem, 0.38vw + 2.85rem, 3.6rem);
 
                 img {
                     width: 100%;
@@ -234,6 +243,179 @@ body::-webkit-scrollbar {
         }
     }
 }
+
+
+
+.main {
+    .main_visual {
+        width: 100%;
+        position: relative;
+        padding-bottom: 15rem;
+
+
+        .inner {
+            
+/*           max-width: 176rem;
+            width: calc(100% - 60px);
+            margin: 0 auto; */
+
+
+            .title_box {
+                padding-top: 10rem;
+
+                h2 {
+                    font-family: "Rufina", serif;
+                    font-size: clamp(6rem, 9vw, 16.4rem);
+                    text-align: center;
+                    color: #203163;
+                    white-space: nowrap;
+                    display: block;
+                    margin-bottom: 2rem;
+                }
+
+                p {
+
+                    font-family: 'POORICH';
+                    font-size: clamp(3rem, 2vw, 4.2rem);
+                    text-align: center;
+                    color: #203163;
+                    white-space: nowrap;
+                }
+            }
+
+            .item_box {
+                width: 100%;
+                display: flex;
+                margin: 3rem 0;
+                justify-content: space-between;
+                
+
+                .image {
+                    
+                    width: 25%;
+                    animation: updown 2s ease-in-out infinite;
+                    position: relative;
+
+                    .shadow {
+                        position: absolute;
+                        bottom: -1rem;
+                        left: 56%;
+                        transform: translateX(-50%);
+                        width: 70%;
+                        height: 1.5rem;
+                        background: rgba(0, 0, 0, 0.7);
+                        border-radius: 50%;
+                        filter: blur(5px);
+                        animation: shadowPulse 2s ease-in-out infinite;
+                        z-index: 1;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .left {
+                    margin-left: 4rem;
+                    img {
+                        transform: rotate(-10deg);
+                    }
+                }
+
+                .right {
+                    margin-right: 4rem;
+                    .shadow {
+                        left: 44%;
+                    }
+
+                    img {
+                        transform: rotate(10deg);
+                    }
+                }
+
+            }
+
+            .video_wrap {
+                position: sticky;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+
+                /* transform: translateY(-50%);  */
+                
+
+                .video {
+                    max-width: 192rem;
+                    width: 35%;
+                    margin: 0 auto;
+                    transition: none;
+                    
+
+                    video {
+                        border-top-left-radius: 2rem;
+                        border-top-right-radius: 2rem;
+                        overflow: hidden;
+                        width: 100%;
+                        height: auto;
+                        display: block;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .section-01 {
+        background-color: #203163;
+        height: 3000px;
+    }
+
+}
+
+
+
+
+@keyframes updown {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes shadowPulse {
+    0% {
+        transform: scale(1) translateX(-50%);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(0.8) translateX(-50%);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1) translateX(-50%);
+        opacity: 0.6;
+    }
+}
+
+
+
+
 
 
 /* 태블릿 max */
@@ -263,6 +445,11 @@ body::-webkit-scrollbar {
 @media screen and (max-width: 500px) {
     .header {
         .inner {
+
+            .logo {
+                display: none;
+            }
+
             .mobile {
                 width: 55%;
             }

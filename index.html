@@ -9,33 +9,89 @@
     <link rel="stylesheet" href="css/scott.css">
 
     <script src="lib/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis"></script>
     <script>
-        $(function (){
+        $(function () {
+            /* smooth scrolling */
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smooth: true
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+
+            requestAnimationFrame(raf);
+
+            gsap.ticker.add(() => {
+                ScrollTrigger.update();
+            });
+
+
+            /* 헤더 스크롤 */
+            let prevScrollbar = 0; /* 이전 스크롤 위치  */
+            $(window).on('scroll', function () {
+                let scrollBar = $(window).scrollTop();  /* 현재 스크롤 위치 */
+
+                console.log(prevScrollbar);
+                console.log(scrollBar);
+
+
+                if (scrollBar >= prevScrollbar) {
+                    $('.header').addClass('active');
+                } else {
+                    $('.header').removeClass('active');
+                }
+
+                prevScrollbar = scrollBar;
+
+            })
 
             /* 네비 버튼 아코디언 */
-            $('.header .mobile .mobile_info .depth-01').on('click', function(){
+            $('.header .mobile .mobile_info .depth-01').on('click', function () {
 
-                if($(this).siblings('.depth-02').css('display') == 'none'){
+                if ($(this).siblings('.depth-02').css('display') == 'none') {
                     $('.header .mobile .mobile_info .depth-02').slideUp();
                     $(this).siblings('.depth-02').slideDown();
 
                     $('.header .mobile .mobile_info .depth-01').removeClass('active');
                     $(this).addClass('active');
-                }else {
+                } else {
                     $(this).siblings('.depth-02').slideUp();
                     $(this).removeClass('active');
                 }
             })
-
-            $('.header .nav .menu').on('click', function(){
+            /* 네비 버튼 열고 닫기 */
+            $('.header .nav .menu').on('click', function () {
                 $('.mobile').addClass('active');
             })
-        
-            $('.header .mobile .mobile_header .menu').on('click',function(){
+            $('.header .mobile .mobile_header .menu').on('click', function () {
                 $('.mobile').removeClass('active');
             })
 
-        })
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.to(".video", {
+                scrollTrigger: {
+                    trigger: ".video_wrap",
+                    start: "90% 95%",
+                    end: "bottom 50%",
+                     /* markers: true,  */
+                    scrub: true,
+                },
+                width: "100%",
+                /* height: "100%" */
+            });
+
+        })  /* script end */
     </script>
 </head>
 
@@ -53,7 +109,7 @@
                     <a href="#" class="menu">
                         <div class="image">
                             <img src="img/codex--align-left.svg" alt="">
-                        </div>  <!-- image end -->
+                        </div> <!-- image end -->
                         <p>Menu</p>
                     </a> <!-- menu end -->
 
@@ -64,7 +120,7 @@
                         <div class="mobile_header">
                             <h2>Scott Hamish</h2>
                             <a href="#" class="menu">
-                               <img src="img/humbleicons--times_white.svg" alt="닫기버튼">
+                                <img src="img/humbleicons--times_white.svg" alt="닫기버튼">
                             </a> <!-- menu active -->
                         </div> <!-- mobile_header end -->
 
@@ -75,11 +131,11 @@
                                         <li><a href="#">BRAND</a></li>
                                         <li><a href="#">SCOTLAND</a></li>
                                         <li><a href="#">CONTACT</a></li>
-                                    </ul>   <!-- depth-02 end -->
+                                    </ul> <!-- depth-02 end -->
 
-                                </li>   <!-- depth-01 end -->
+                                </li> <!-- depth-01 end -->
                                 <li><a href="#" class="depth-01">PRODUCT</a>
-                                </li>   <!-- depth-01 end -->
+                                </li> <!-- depth-01 end -->
 
                                 <li><a href="#" class="depth-01">BOARD</a>
                                     <ul class="depth-02">
@@ -87,14 +143,14 @@
                                         <li><a href="#">NEWS</a></li>
                                         <li><a href="#">Q&A</a></li>
                                         <li><a href="#">REVIEW</a></li>
-                                    </ul>   <!-- depth-02 end -->
-                                </li>   <!-- depth-01 end -->
+                                    </ul> <!-- depth-02 end -->
+                                </li> <!-- depth-01 end -->
 
                                 <li><a href="#" class="depth-01">MYPAGE</a>
-                                </li>   <!-- depth-01 end -->
+                                </li> <!-- depth-01 end -->
 
-                            </ul>   <!-- mobile gnb end -->
-                        </div>  <!-- mobile_info end -->
+                            </ul> <!-- mobile gnb end -->
+                        </div> <!-- mobile_info end -->
 
                     </div> <!-- mobile inner end -->
                 </nav> <!-- mobile end -->
@@ -102,14 +158,48 @@
                 <div class="option">
                     <a href="#" class="search">
                         <img src="img/lets-icons--search.svg" alt="">
-                    </a> <!-- search end -->    
+                    </a> <!-- search end -->
 
                     <a href="#" class="user">
                         <img src="img/lucide--user-round.svg" alt="">
-                    </a> <!-- search end -->    
-                </div>  <!-- option end -->
+                    </a> <!-- search end -->
+                </div> <!-- option end -->
             </div> <!-- inner end -->
-        </header> <!-- header end -->
+        </header> <!-- header end -->.
+
+        <main class="main">
+            <section class="main_visual">
+                <div class="inner">
+
+                    <div class="title_box">
+                        <h2>Scott hamish</h2>
+                        <p>Scotland<br />The great heriage for your skin</p>
+                    </div> <!-- title_box end -->
+
+                    <div class="item_box">
+                        <div class="image left">
+                            <div class="shadow"></div>
+                            <img src="img/메인 (1).png" alt="블루 블렌디드 토너 에센스">
+                        </div> <!-- image end -->
+
+                        <div class="image right">
+                            <div class="shadow"></div>
+                            <img src="img/메인 (2).png" alt="블루 블렌디드 로션 에센스">
+                        </div> <!-- image end -->
+                    </div> <!-- item_box end -->
+
+                    <div class="video_wrap">
+                        <div class="video">
+                            <video src="img/videoplayback.mp4" autoplay muted loop></video>
+                        </div> <!-- video end -->
+                    </div> <!-- video_warp end -->
+                </div> <!-- inner end -->
+            </section> <!-- main_visual end-->
+
+            <section class="section-01">
+fdffdfdfdf
+            </section>  <!-- section-01 end -->
+        </main> <!-- main end -->
     </div> <!-- wrap end -->
 </body>
 
