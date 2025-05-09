@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("reset.css");
 @import url("https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap");
 /*
@@ -18,13 +19,15 @@
   src: url("./fonts/POORICH.TTF") format("truetype");
   font-style: normal;
   font-weight: normal;
-} /* POOR RICHARD */
+}
+/* POOR RICHARD */
 @font-face {
   font-family: "Pretendard-Regular";
   src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
-} /* PRETENDARD */
+}
+/* PRETENDARD */
 html,
 body {
   font-size: 62.5%;
@@ -51,10 +54,86 @@ body::-webkit-scrollbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: bisque;
+  background-color: transparent;
 }
 .header .inner .mobile {
+  order: -1;
+  width: 34%;
+  height: 100vh;
+  background-color: #203163;
+  color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateX(-100%);
+  transition: 0.7s;
+}
+.header .inner .mobile.active {
+  transform: translateX(0);
+}
+.header .inner .mobile .mobile_inner {
+  padding: 0 clamp(3rem, 2.5vw, 8rem);
+  margin: 0 auto;
+}
+.header .inner .mobile .mobile_inner .mobile_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 9rem;
+}
+.header .inner .mobile .mobile_inner .mobile_header h2 {
+  font-family: "Rufina", serif;
+  font-size: clamp(2.4rem, 3.4vw, 4.2rem);
+  white-space: nowrap;
+}
+.header .inner .mobile .mobile_inner .mobile_header .menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+}
+.header .inner .mobile .mobile_inner .mobile_header .menu img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.header .inner .mobile .mobile_inner .mobile_info {
+  margin-top: 4rem;
+}
+.header .inner .mobile .mobile_inner .mobile_info .mobile_gnb {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.header .inner .mobile .mobile_inner .mobile_info .mobile_gnb .depth-01 {
+  font-family: "POORICH";
+  display: block;
+  font-size: clamp(3rem, 3.8vw, 7.8rem);
+  margin-bottom: 3rem;
+}
+.header .inner .mobile .mobile_inner .mobile_info .mobile_gnb .depth-01:hover {
+  color: #FECB73;
+}
+.header .inner .mobile .mobile_inner .mobile_info .mobile_gnb .depth-01.active {
+  color: #FECB73;
+}
+.header .inner .mobile .mobile_inner .mobile_info .mobile_gnb .depth-02 {
   display: none;
+}
+.header .inner .mobile .mobile_inner .mobile_info .mobile_gnb .depth-02 li {
+  font-size: clamp(2rem, 2vw, 4rem);
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+  padding-left: 2rem;
+}
+.header .inner .mobile .mobile_inner .mobile_info .mobile_gnb .depth-02 li a {
+  display: block;
+}
+.header .inner .mobile .mobile_inner .mobile_info .mobile_gnb .depth-02 li:hover {
+  color: #fff;
 }
 .header .inner .logo {
   max-width: clamp(16rem, 1.29vw + 11.51rem, 18rem);
@@ -76,39 +155,58 @@ body::-webkit-scrollbar {
 }
 .header .inner .nav {
   font-family: "POORICH";
+  order: -1;
 }
 .header .inner .nav .menu {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
 }
-.header .inner .nav .menu .menu_icon {
-  /* border: 1px solid #203163; */
+.header .inner .nav .menu .image {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   justify-content: center;
-  gap: 0.8rem;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
 }
-.header .inner .nav .menu .menu_icon .top {
-  display: block;
-  width: 2.5rem;
-  height: 0.25rem;
-  background-color: #203163;
-}
-.header .inner .nav .menu .menu_icon .center {
-  display: block;
-  width: 1.5rem;
-  height: 0.3rem;
-  background-color: #203163;
-}
-.header .inner .nav .menu .menu_icon .bottom {
-  display: block;
-  width: 2rem;
-  height: 0.25rem;
-  background-color: #203163;
+.header .inner .nav .menu .image img {
+  width: 100%;
+  height: 100%;
 }
 .header .inner .nav .menu p {
-  font-size: 3.8rem;
+  font-size: 3rem;
   color: #203163;
+  font-weight: 500;
+}
+.header .inner .option {
+  display: flex;
+  gap: 1rem;
+}
+.header .inner .option a {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+}
+.header .inner .option a img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* 태블릿 max */
+@media screen and (max-width: 1024px) {
+  .header .inner .mobile {
+    width: 50%;
+  }
+}
+/* 모바일 max */
+@media screen and (max-width: 768px) {
+  .header .inner .mobile {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .header .inner .mobile {
+    width: 55%;
+  }
 }/*# sourceMappingURL=scott.css.map */

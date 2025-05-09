@@ -7,6 +7,36 @@
     <title>scott hemish</title>
     <link rel="stylesheet" href="css/scott.scss">
     <link rel="stylesheet" href="css/scott.css">
+
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function (){
+
+            /* 네비 버튼 아코디언 */
+            $('.header .mobile .mobile_info .depth-01').on('click', function(){
+
+                if($(this).siblings('.depth-02').css('display') == 'none'){
+                    $('.header .mobile .mobile_info .depth-02').slideUp();
+                    $(this).siblings('.depth-02').slideDown();
+
+                    $('.header .mobile .mobile_info .depth-01').removeClass('active');
+                    $(this).addClass('active');
+                }else {
+                    $(this).siblings('.depth-02').slideUp();
+                    $(this).removeClass('active');
+                }
+            })
+
+            $('.header .nav .menu').on('click', function(){
+                $('.mobile').addClass('active');
+            })
+        
+            $('.header .mobile .mobile_header .menu').on('click',function(){
+                $('.mobile').removeClass('active');
+            })
+
+        })
+    </script>
 </head>
 
 <body>
@@ -21,11 +51,9 @@
                 <nav class="nav">
 
                     <a href="#" class="menu">
-                        <div class="menu_icon">
-                            <span class="top"></span>
-                            <span class="center"></span>
-                            <span class="bottom"></span>
-                        </div> <!-- menu_icon end -->
+                        <div class="image">
+                            <img src="img/codex--align-left.svg" alt="">
+                        </div>  <!-- image end -->
                         <p>Menu</p>
                     </a> <!-- menu end -->
 
@@ -36,8 +64,7 @@
                         <div class="mobile_header">
                             <h2>Scott Hamish</h2>
                             <a href="#" class="menu">
-                                <span class="top"></span>
-                                <span class="bottom"></span>
+                               <img src="img/humbleicons--times_white.svg" alt="닫기버튼">
                             </a> <!-- menu active -->
                         </div> <!-- mobile_header end -->
 
