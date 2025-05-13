@@ -17,7 +17,7 @@
 
     <script>
         $(function () {
-        /* 🔴🔴🔴🔴🔴  smooth scrolling 🔴🔴🔴🔴🔴 */
+            /* 🔴🔴🔴🔴🔴  smooth scrolling 🔴🔴🔴🔴🔴 */
             const lenis = new Lenis({
                 duration: 1.2,
                 easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -40,9 +40,9 @@
             let prevScrollbar = 0; /* 이전 스크롤 위치  */
             $(window).on('scroll', function () {
                 let scrollBar = $(window).scrollTop();  /* 현재 스크롤 위치 */
-                /* 
+
                 console.log(prevScrollbar);
-                console.log(scrollBar); */
+                console.log(scrollBar);
 
 
                 if (scrollBar >= prevScrollbar) {
@@ -70,7 +70,7 @@
                     $(this).removeClass('active');
                 }
             })
-           
+
 
             /*🔴🔴🔴🔴🔴 네비 버튼 열고 닫기 🔴🔴🔴🔴🔴 */
             $('.header .nav .menu').on('click', function () {
@@ -92,6 +92,7 @@
                     scrub: true,
                 },
                 width: "100%",
+                height: "100%"
                 /* height: "100%" */
             });
 
@@ -107,7 +108,18 @@
                     opacity: 0,
                     duration: 2,
                     ease: "elastic.out(1, 0.75)",
-                    stagger: 0.05
+                    stagger: 0.05,
+
+                    onComplete: () => {
+                        gsap.to(split.chars, {
+                            y: -40,
+                            duration: 1.5,
+                            ease: "bounce.out",
+                            repeat: -1,
+                            yoyo: true,
+                            stagger: 0.1
+                        });
+                    }
                 });
 
 
@@ -137,7 +149,7 @@
                         start: '15% 50%',
                         end: '25% 50%',
                         scrub: 1,
-                        /*   markers: true */    
+                        /*   markers: true */
 
                     }
                 })
@@ -164,12 +176,66 @@
                     .to('.third', { opacity: 1, duration: 3 });
 
 
+                /*🔴🔴🔴🔴🔴  섹션 1 이미지 스크롤 애니메이션 🔴🔴🔴🔴🔴 */
+                gsap.fromTo(".section-01 .inner .image_wrap .left_box", {
+                    'transform': 'rotate(0) translateX(0)'
+
+                }, {
+                    'transform': 'rotate(-5deg) translateX(-40%)',
+                    scrollTrigger: {
+                        trigger: ".section-01 .inner .image_wrap",
+                        start: "10% 40%",
+                        end: "80% 50%",
+                        /* markers: true,  */
+                        scrub: true,
+                    }
+
+                });
+
+                gsap.fromTo(".section-01 .inner .image_wrap .right_box", {
+                    'transform': 'rotate(0) translateX(0)'
+
+                }, {
+                    'transform': 'rotate(5deg) translateX(40%)',
+                    scrollTrigger: {
+                        trigger: ".section-01 .inner .image_wrap",
+                        start: "10% 40%",
+                        end: "80% 50%",
+                        /* markers: true, */
+                        scrub: true,
+                    }
+
+                });
+
+
+
+
                 /*🔴🔴🔴🔴🔴  섹션 2 스크롤 애니메이션 🔴🔴🔴🔴🔴 */
+                const t3 = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '.section-02 .inner .scroll_right',
+                        start: '10% center',
+                        end: '80% 35%',
+                        scrub: 1,
+                        /* markers: true */
+                    }
+                })
+                t3.to('.tex1, span', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+                t3.to('.tex2', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+                t3.to('.tex3', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+                t3.to('.tex4', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+                t3.to('.tex5', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+                t3.to('.tex6', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+                t3.to('.tex7', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+                t3.to('.tex8', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+                t3.to('.tex9', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+
+
 
             })  /* script end */
-    
+
         });
-        </script>
+    </script>
 </head>
 
 <body>
@@ -276,14 +342,18 @@
             <section class="section-01">
                 <div class="inner">
                     <div class="image_wrap">
-                        <img src="img/image-7.png" alt="" class="img1">
-                        <img src="img/image.png" alt="" class="img2">
-                        <img src="img/image-8.png" alt="" class="img3">
-                        <img src="img/image-1.png" alt="" class="img4">
-                        <img src="img/image-6.png" alt="" class="img5">
-                        <img src="img/image-5.png" alt="" class="img6">
-                        <img src="img/image-2.png" alt="" class="img7">
-                        <img src="img/image-3.png" alt="" class="img8">
+                        <div class="box left_box">
+                            <img src="img/image-2.png" alt="" class="img2">
+                            <img src="img/image-4.png" alt="" class="img4">
+                            <img src="img/image-8.png" alt="" class="img8">
+                            <img src="img/image-7.png" alt="" class="img7">
+                        </div>
+                        <div class="box right_box">
+                            <img src="img/image-1.png" alt="" class="img1">
+                            <img src="img/image-3.png" alt="" class="img3">
+                            <img src="img/image-5.png" alt="" class="img5">
+                            <img src="img/image-6.png" alt="" class="img6">
+                        </div>
                     </div><!-- item_wrap end -->
 
                     <div class="text_wrap">
@@ -320,31 +390,50 @@
                 <div class="inner">
                     <div class="scroll_wrap">
                         <div class="fixed_left">
-                            <div class="image">
-                                <img src="img/image 17.png" alt="">
-                            </div>  <!-- image end -->
                             <div class="text">
                                 <h3>Scott Hamish</h3>
                                 <h3>Personality</h3>
-                            </div>  <!-- text end -->
-                        </div>  <!-- fixed_left end -->
+                            </div> <!-- text end -->
+                        </div> <!-- fixed_left end -->
                         <div class="scroll_right">
-                            <div class="rev">CHALLENGE</div>
-                            <div class="rev">GROWTH</div>
-                            <div class="rev">ACHIEVEMENT</div>
-                            <div class="rev">OVERCOME</div>
-                            <div class="rev">CONFIDENCE</div>
-                            <div class="rev">SMART</div>
-                            <div class="rev">GENEROSITY</div>
-                            <div class="rev">PASSION</div>
-                        </div>  <!-- scroll_right end -->
-                    </div>  <!-- scroll_wrap end -->
-                </div>  <!-- inner end -->
-            </section>  <!-- section-02 end -->
+                            <div class="rev tex1">CHALLENGE <span>- 도전</span></div>
+                            <div class="rev tex2">GROWTH <span>- 성장</span></div>
+                            <div class="rev tex3">ACHIEVEMENT <span>- 성취</span></div>
+                            <div class="rev tex4">OVERCOME <span>- 극복</span></div>
+                            <div class="rev tex5">CONFIDENCE <span>- 자신감</span></div>
+                            <div class="rev tex6">SMART <span>- 스마트</span></div>
+                            <div class="rev tex7">GENEROSITY <span>- 관대함</span></div>
+                            <div class="rev tex8">PASSION <span>- 열정</span></div>
+                            <div class="rev tex9">WE HAVE</div>
+                        </div> <!-- scroll_right end -->
+                    </div> <!-- scroll_wrap end -->
+                </div> <!-- inner end -->
+            </section> <!-- section-02 end -->
 
             <section class="section-03">
+                <div class="inner">
+                    <div class="text">
+                        <h3>Blended Essence Collection</h3>
+                        <p>스코틀랜드의 헤리티지에서 찾은 모티브로 당신의 피부에 최적화된
+                            그루밍 케어와 뷰티 솔루션을 제공합니다.</p>
+                    </div>  <!-- text end -->
 
-            </section>
+                    <div class="item_wrap">
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/image.png" alt="">
+                            </div>  <!-- image end -->
+                            <div class="text">
+                                <p>블루 블렌디드 토너 에센스</p>
+                                <a href="#">
+                                    <span>보러가기</span>
+                                    <img src="img/arrow-up-line.png" alt="">
+                                        </a>
+                            </div>  <!-- text end -->
+                        </div>  <!-- item end -->
+                    </div>  <!-- item_wrap end -->
+                </div> <!-- inner end -->
+            </section> <!-- section-03 end -->
         </main> <!-- main end -->
     </div> <!-- wrap end -->
 </body>
