@@ -417,6 +417,7 @@ body {
         padding-top: clamp(12rem, 18vh + 2.2rem, 20rem);
         background-color: #203163;
         height: 300rem;
+        width: 100%;
         position: relative;
 
         &::after {
@@ -631,7 +632,7 @@ body {
                     .rev {
                         margin-top: 8rem;
                         font-family: 'Pretendard-Regular';
-                        font-size: clamp(4rem, 6vw + 1rem, 7.2rem);
+                        font-size: clamp(4rem, 6vw + 1rem, 6.4rem);
                         background-clip: text;
                         -webkit-background-clip: text;
                         background-repeat: no-repeat;
@@ -682,6 +683,55 @@ body {
             width: calc(100% - 60px);
             margin: 0 auto;
             position: relative;
+
+            .text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                gap: 1.8rem;
+                margin-bottom: 5rem;
+
+
+                h3 {
+                    display: flex;
+                    
+                    font-family: 'POORICH';
+                    font-size: clamp(3.6rem, 2.5vw + 1.5rem, 8rem);
+                    font-weight: 500;
+                    color: #FECB73;
+                    letter-spacing: 0.3rem;
+                }
+
+                p {
+                    display: block;
+                    padding: 0 1.6rem;
+                     font-family: 'Pretendard-Regular';
+                     color: rgba(255, 255, 255, 0.6);
+                     font-size: clamp(1.2rem, 1vw + 0.5rem, 1.8rem);
+                    
+                }
+
+
+
+            }
+
+            .item_wrap {
+                display: flex;
+                justify-content: center;
+                gap: 5rem;
+                flex-wrap: wrap;
+
+
+                .item {
+                    width: 45%;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
         }
     }
 
@@ -836,68 +886,72 @@ body {
         }
 
         .section-01 {
+
             .inner {
                 .text_wrap {
                     .text {
-                        width: 90%;
+                        width: 100%;
                     }
                 }
 
                 .image_wrap {
+                    margin-top: 15rem;
+                    flex-wrap: wrap;
+                    width: 100%;
+                    overflow: hidden;
+
+                    .left_box {
+                        transform: rotate(0) translateX(0);
+                        gap: 5rem;
+                    }
+
+                    .right_box {
+                        transform: rotate(0) translateX(0);
+                        gap: 5rem;
+
+                        img:last-child {
+                            display: none;
+                        }
+                    }
+
+                    gap: 5rem;
+
                     img {
-                        width: 70%;
-
-                        &.img1 {
-                            top: 7%;
-                        }
-
-                        &.img2 {
-                            top: 21%;
-                        }
-
-                        &.img3 {
-                            top: 32%;
-                        }
-
-                        &.img4 {
-                            top: 42%;
-                        }
-
-                        &.img5 {
-                            left: 22%;
-                            top: 5%;
-                        }
-
-                        &.img6 {
-
-                            top: 75%;
-                        }
-
-                        &.img7 {
-
-                            top: 86%;
-                        }
-
-                        &.img8 {
-
-                            top: 55%;
-                        }
+                        width: 100%;
+                        opacity: 0.7;
                     }
                 }
             }
+        }
+
+        .section-02 {
+            margin-bottom: 15rem;
         }
 
         .section-02 .inner .scroll_wrap {
             gap: 32rem;
 
             .fixed_left {
+
+                &:hover {
+                    opacity: 0.5;
+                }
+
                 &::after {
                     height: 66rem;
+                }
+
+                .text {
+
+                    h3 {
+                        color: #fff;
+                    }
                 }
             }
 
             .scroll_right {
                 margin-left: 3rem;
+                gap: 4rem;
             }
         }
 
