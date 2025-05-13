@@ -308,7 +308,7 @@ body {
                         background: rgba(0, 0, 0, 0.7);
                         border-radius: 50%;
                         filter: blur(5px);
-                        animation: shadowPulse 2s ease-in-out infinite;
+                        animation: shadowPulse 1s ease-in-out infinite;
                         z-index: 1;
                     }
 
@@ -362,12 +362,15 @@ body {
 
                 &::after {
                     content: 'Scroll';
-                    font-size: clamp(1.8rem, 1.5vw + 1rem, 2.4rem);
+                    font-size: clamp(1.8rem, 1.5vw + 1rem, 2.0rem);
                     position: absolute;
                     top: -6rem;
                     left: 50%;
                     transform: translateX(-50%);
+                    opacity: 0.7;
+                    animation: scrollmoves 1s linear infinite;
                 }
+
 
 
                 &::before {
@@ -379,6 +382,8 @@ body {
                     background: url('../img/Group 4.png')center center / 100% no-repeat;
                     width: 2rem;
                     height: 2rem;
+                    opacity: 0.7;
+                    animation: scrollmove 1s linear infinite;
                 }
 
 
@@ -510,18 +515,18 @@ body {
                 gap: 20rem;
 
                 .left_box {
-                    transform: rotate(-5deg) translateX(-20%);
+                    transform: rotate(-6deg) translateX(-20%);
                 }
 
                 .right_box {
-                    transform: rotate(5deg) translateX(20%);
+                    transform: rotate(6deg) translateX(20%);
                 }
 
                 .box {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    gap: 25rem;
+                    gap: 20rem;
 
                     img {
                         width: 100%;
@@ -536,8 +541,6 @@ body {
         }
 
     }
-
-
 
     .section-02 {
         margin-top: clamp(12rem, 18vh + 2.2rem, 20rem);
@@ -655,11 +658,11 @@ body {
     }
 
     .section-03 {
-         padding-top: clamp(12rem, 18vh + 2.2rem, 20rem);
-         background-color: #203163;
-         position: relative;
+        padding-top: clamp(12rem, 18vh + 2.2rem, 20rem);
+        background-color: #203163;
+        position: relative;
 
-         &::after {
+        &::after {
             content: '';
             background: url("../img/Group 145 (1).png") center center/cover no-repeat;
             position: absolute;
@@ -667,11 +670,19 @@ body {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 18rem;
-            top: 0;
+            height: 21rem;
+            top: -7.2rem;
             left: 50%;
             transform: translateX(-50%);
-         }
+
+        }
+
+        .inner {
+            max-width: 176rem;
+            width: calc(100% - 60px);
+            margin: 0 auto;
+            position: relative;
+        }
     }
 
 
@@ -711,6 +722,36 @@ body {
         transform: scale(0.9) translateX(-50%);
         opacity: 0.8;
     }
+}
+
+@keyframes scrollmove {
+    0% {
+        transform: translate(-50%, 30%);
+    }
+
+    50% {
+        transform: translate(-50%, 0%);
+    }
+
+    100% {
+        transform: translate(-50%, 30%);
+    }
+
+}
+
+@keyframes scrollmoves {
+    0% {
+        transform: translate(-50%, 30%);
+    }
+
+    50% {
+        transform: translate(-50%, 0%);
+    }
+
+    100% {
+        transform: translate(-50%, 30%);
+    }
+
 }
 
 
@@ -849,9 +890,17 @@ body {
         .section-02 .inner .scroll_wrap {
             gap: 32rem;
 
+            .fixed_left {
+                &::after {
+                    height: 66rem;
+                }
+            }
+
             .scroll_right {
                 margin-left: 3rem;
             }
         }
+
+        .section-03 {}
     }
 }

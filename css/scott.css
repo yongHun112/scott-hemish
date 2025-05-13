@@ -252,7 +252,7 @@ body {
   background: rgba(0, 0, 0, 0.7);
   border-radius: 50%;
   filter: blur(5px);
-  animation: shadowPulse 2s ease-in-out infinite;
+  animation: shadowPulse 1s ease-in-out infinite;
   z-index: 1;
 }
 .main .main_visual .inner .item_box .image img {
@@ -293,11 +293,13 @@ body {
 }
 .main .main_visual .inner .video_wrap::after {
   content: "Scroll";
-  font-size: clamp(1.8rem, 1.5vw + 1rem, 2.4rem);
+  font-size: clamp(1.8rem, 1.5vw + 1rem, 2rem);
   position: absolute;
   top: -6rem;
   left: 50%;
   transform: translateX(-50%);
+  opacity: 0.7;
+  animation: scrollmoves 1s linear infinite;
 }
 .main .main_visual .inner .video_wrap::before {
   content: "";
@@ -308,6 +310,8 @@ body {
   background: url("../img/Group 4.png") center center/100% no-repeat;
   width: 2rem;
   height: 2rem;
+  opacity: 0.7;
+  animation: scrollmove 1s linear infinite;
 }
 .main .main_visual .inner .video_wrap .video {
   max-width: 192rem;
@@ -411,16 +415,16 @@ body {
   gap: 20rem;
 }
 .main .section-01 .inner .image_wrap .left_box {
-  transform: rotate(-5deg) translateX(-20%);
+  transform: rotate(-6deg) translateX(-20%);
 }
 .main .section-01 .inner .image_wrap .right_box {
-  transform: rotate(5deg) translateX(20%);
+  transform: rotate(6deg) translateX(20%);
 }
 .main .section-01 .inner .image_wrap .box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 25rem;
+  gap: 20rem;
 }
 .main .section-01 .inner .image_wrap .box img {
   width: 100%;
@@ -524,10 +528,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 18rem;
-  top: 0;
+  height: 21rem;
+  top: -7.2rem;
   left: 50%;
   transform: translateX(-50%);
+}
+.main .section-03 .inner {
+  max-width: 176rem;
+  width: calc(100% - 60px);
+  margin: 0 auto;
+  position: relative;
 }
 
 @keyframes updown {
@@ -553,6 +563,28 @@ body {
   100% {
     transform: scale(0.9) translateX(-50%);
     opacity: 0.8;
+  }
+}
+@keyframes scrollmove {
+  0% {
+    transform: translate(-50%, 30%);
+  }
+  50% {
+    transform: translate(-50%, 0%);
+  }
+  100% {
+    transform: translate(-50%, 30%);
+  }
+}
+@keyframes scrollmoves {
+  0% {
+    transform: translate(-50%, 30%);
+  }
+  50% {
+    transform: translate(-50%, 0%);
+  }
+  100% {
+    transform: translate(-50%, 30%);
   }
 }
 /* 태블릿 max */
@@ -622,6 +654,9 @@ body {
   }
   .main .section-02 .inner .scroll_wrap {
     gap: 32rem;
+  }
+  .main .section-02 .inner .scroll_wrap .fixed_left::after {
+    height: 66rem;
   }
   .main .section-02 .inner .scroll_wrap .scroll_right {
     margin-left: 3rem;
