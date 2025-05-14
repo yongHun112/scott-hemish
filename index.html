@@ -178,34 +178,49 @@
 
 
             /*🔴🔴🔴🔴🔴  섹션 1 이미지 스크롤 애니메이션 🔴🔴🔴🔴🔴 */
-            gsap.fromTo(".section-01 .inner .image_wrap .left_box", {
-                'transform': 'rotate(0) translateX(0)'
 
-            }, {
-                'transform': 'rotate(-5deg) translateX(-40%)',
-                scrollTrigger: {
-                    trigger: ".section-01 .inner .image_wrap",
-                    start: "10% 40%",
-                    end: "80% 50%",
-                    /* markers: true,  */
-                    scrub: true,
+
+            ScrollTrigger.matchMedia({
+                // 데스크탑 전용
+                "(min-width: 501px)": function () {
+                    gsap.fromTo(".section-01 .inner .image_wrap .left_box",
+                        {
+                            transform: "rotate(0) translateX(0)"
+                        },
+                        {
+                            transform: "rotate(-5deg) translateX(-40%)",
+                            scrollTrigger: {
+                                trigger: ".section-01 .inner .image_wrap",
+                                start: "10% 40%",
+                                end: "80% 50%",
+                                scrub: true,
+                                // markers: true,
+                            }
+                        }
+                    );
                 }
-
             });
 
-            gsap.fromTo(".section-01 .inner .image_wrap .right_box", {
-                'transform': 'rotate(0) translateX(0)'
 
-            }, {
-                'transform': 'rotate(5deg) translateX(40%)',
-                scrollTrigger: {
-                    trigger: ".section-01 .inner .image_wrap",
-                    start: "10% 40%",
-                    end: "80% 50%",
-                    /* markers: true, */
-                    scrub: true,
+            ScrollTrigger.matchMedia({
+                // 데스크탑 전용
+                "(min-width: 501px)": function () {
+                    gsap.fromTo(".section-01 .inner .image_wrap .right_box",
+                        {
+                            transform: "rotate(0) translateX(0)"
+                        },
+                        {
+                            transform: "rotate(5deg) translateX(40%)",
+                            scrollTrigger: {
+                                trigger: ".section-01 .inner .image_wrap",
+                                start: "10% 40%",
+                                end: "80% 50%",
+                                scrub: true,
+                                // markers: true,
+                            }
+                        }
+                    );
                 }
-
             });
 
 
@@ -215,10 +230,10 @@
             const t3 = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.section-02 .inner .scroll_right',
-                    start: '10% top',
-                    end: '100% 20%',
+                    start: 'top 30%',
+                    end: '100% 60%',
                     scrub: true,
-                    /* markers: true  */ 
+                    /*  markers: true  */
                 }
             })
             t3.to('.tex1, span', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
@@ -261,19 +276,33 @@
             const texts = document.querySelectorAll('.section-04 .list_wrap .left_text h4');
             const items = document.querySelectorAll('.section-04 .list_wrap .right_image .item');
 
-            texts.forEach((text, i) => {
-                ScrollTrigger.create({
-                    trigger: text,
-                    start: `top+=${i * 100}vh top`,
-                    end: `top+=${(i + 1) * 100}vh top`,
-                    scrub: true,
-                    /* markers: true, */ 
-                    onEnter: () => setActive(i),
-                    onEnterBack: () => setActive(i),
-                });
+            // 데스크탑: 스크롤 트리거 전환
+            ScrollTrigger.matchMedia({
+                "(min-width: 1301px)": function () {
+                    texts.forEach((text, i) => {
+                        ScrollTrigger.create({
+                            trigger: text,
+                            start: `top+=${i * 100}vh top`,
+                            end: `top+=${(i + 1) * 100}vh top`,
+                            scrub: true,
+                            // markers: true,
+                            onEnter: () => setActive(i),
+                            onEnterBack: () => setActive(i),
+                        });
+                    });
+                },
+
+                // 모바일 & 태블릿: 클릭으로 전환
+                "(max-width: 1300px)": function () {
+                    texts.forEach((text, i) => {
+                        text.addEventListener("click", () => setActive(i));
+                    });
+                }
             });
 
+            // 공통: 텍스트 + 이미지 전환 함수
             function setActive(index) {
+                // 이미지 전환
                 items.forEach((el, i) => {
                     if (i === index) {
                         gsap.fromTo(
@@ -282,8 +311,8 @@
                             {
                                 opacity: 1,
                                 y: 0,
-                                duration: 0.8,         // ← 더 느리게
-                                ease: "sine.inOut"     // ← 더 부드럽게
+                                duration: 0.8,
+                                ease: "sine.inOut"
                             }
                         );
                     } else {
@@ -295,6 +324,7 @@
                     }
                 });
 
+                // 텍스트 .active 클래스 처리
                 texts.forEach((el, i) => {
                     el.classList.toggle("active", i === index);
                 });
@@ -303,19 +333,19 @@
 
             /*🔴🔴🔴🔴🔴  섹션 5 가로스크롤 애니메이션 🔴🔴🔴🔴🔴 */
 
-            const horizontalScroll = gsap.to(".horizontal-wrapper", {
-                x: () => (document.querySelector(".horizontal-wrapper").scrollWidth - window.innerWidth), // 가로로 스크롤될 거리 계산
-                ease: "none",
-                scrollTrigger: {
-                    trigger: ".horizontal-scroll-container", // 스크롤이 발생할 요소
-                    start: "top top", // 트리거 지점: 스크롤 컨테이너의 상단과 뷰포트의 상단이 만나는 지점
-                    end: () => "+=" + (document.querySelector(".horizontal-wrapper").scrollWidth - window.innerWidth), // 전체 가로 길이만큼 스크롤
-                    scrub: true, // 스크롤과 애니메이션 동기화
-                    pin: true, // 요소 고정
-                    anticipatePin: 1, // 스크롤과 고정 간의 자연스러운 전환을 위해 설정
-                    markers: true 
-                }
-            });
+            /*             const horizontalScroll = gsap.to(".horizontal-wrapper", {
+                            x: () => -(document.querySelector(".horizontal-wrapper").scrollWidth - window.innerWidth), // 가로로 스크롤될 거리 계산
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: ".horizontal-scroll-container", // 스크롤이 발생할 요소
+                                start: "top top", // 트리거 지점: 스크롤 컨테이너의 상단과 뷰포트의 상단이 만나는 지점
+                                end: () => "+=" + (document.querySelector(".horizontal-wrapper").scrollWidth - window.innerWidth), // 전체 가로 길이만큼 스크롤
+                                scrub: true, // 스크롤과 애니메이션 동기화
+                                pin: true, // 요소 고정
+                                anticipatePin: 1, // 스크롤과 고정 간의 자연스러운 전환을 위해 설정
+                                markers: true  
+                            }
+                        }); */
         }); /* script end */
 
 
@@ -660,6 +690,8 @@
                                 </a>
 
                             </div> <!-- horizontal-item  end-->
+
+
                             <!-- 가로로 긴 콘텐츠 추가 -->
                         </div> <!-- horizontal-wrapper end -->
                     </div> <!-- horizontal-scroll-container end -->
