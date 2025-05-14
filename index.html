@@ -41,8 +41,8 @@
             $(window).on('scroll', function () {
                 let scrollBar = $(window).scrollTop();  /* 현재 스크롤 위치 */
 
-                console.log(prevScrollbar);
-                console.log(scrollBar);
+                /*                 console.log(prevScrollbar);
+                                console.log(scrollBar); */
 
 
                 if (scrollBar >= prevScrollbar) {
@@ -122,119 +122,203 @@
                     }
                 });
 
+            });
 
-                const subText = $('.main_visual .title_box p');
-                const subSplit = new SplitText(subText[0], { type: "chars" });
+            const subText = $('.main_visual .title_box p');
+            const subSplit = new SplitText(subText[0], { type: "chars" });
 
-                gsap.from(subSplit.chars, {
-                    y: 50,
-                    opacity: 0,
-                    duration: 1.5,
-                    ease: "elastic.out(1, 0.75)",
-                    stagger: 0.05
+            gsap.from(subSplit.chars, {
+                y: 50,
+                opacity: 0,
+                duration: 1.5,
+                ease: "elastic.out(1, 0.75)",
+                stagger: 0.05
+            });
+
+
+
+            /* 🔴🔴🔴🔴🔴 섹션1 텍스트 애니메이션 🔴🔴🔴🔴🔴 */
+            gsap.fromTo('.section-01 .inner .text_wrap .text h4', {
+                'background-size': '0% 100%',
+                'opacity': '0'
+            }, {
+                'background-size': '100% 100%',
+                'opacity': '1',
+                scrollTrigger: {
+                    trigger: '.section-01 .inner .text_wrap',
+                    pinnedContainer: '.section-01 .inner .text_wrap',
+                    start: '15% 50%',
+                    end: '25% 50%',
+                    scrub: 1,
+                    /*   markers: true */
+
+                }
+            })
+
+
+            /*🔴🔴🔴🔴🔴  섹션 1 스크롤 애니메이션 🔴🔴🔴🔴🔴 */
+            gsap.registerPlugin(ScrollTrigger);
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.section-01 .text_wrap',
+                    start: '30% 60%',
+                    end: '90% 40%',
+                    scrub: true,
+                    /* pin: true, */
+                    /*  markers: true  */
+                }
+            });
+
+            tl.to('.first', { opacity: 1, duration: 3 })
+                .to('.first', { opacity: 0, duration: 3 })
+                .to('.second', { opacity: 1, duration: 3 })
+                .to('.second', { opacity: 0, duration: 3 })
+                .to('.third', { opacity: 1, duration: 3 });
+
+
+            /*🔴🔴🔴🔴🔴  섹션 1 이미지 스크롤 애니메이션 🔴🔴🔴🔴🔴 */
+            gsap.fromTo(".section-01 .inner .image_wrap .left_box", {
+                'transform': 'rotate(0) translateX(0)'
+
+            }, {
+                'transform': 'rotate(-5deg) translateX(-40%)',
+                scrollTrigger: {
+                    trigger: ".section-01 .inner .image_wrap",
+                    start: "10% 40%",
+                    end: "80% 50%",
+                    /* markers: true,  */
+                    scrub: true,
+                }
+
+            });
+
+            gsap.fromTo(".section-01 .inner .image_wrap .right_box", {
+                'transform': 'rotate(0) translateX(0)'
+
+            }, {
+                'transform': 'rotate(5deg) translateX(40%)',
+                scrollTrigger: {
+                    trigger: ".section-01 .inner .image_wrap",
+                    start: "10% 40%",
+                    end: "80% 50%",
+                    /* markers: true, */
+                    scrub: true,
+                }
+
+            });
+
+
+
+
+            /*🔴🔴🔴🔴🔴  섹션 2 스크롤 애니메이션 🔴🔴🔴🔴🔴 */
+            const t3 = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.section-02 .inner .scroll_right',
+                    start: '10% top',
+                    end: '100% 20%',
+                    scrub: true,
+                    /* markers: true  */ 
+                }
+            })
+            t3.to('.tex1, span', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+            t3.to('.tex2', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+            t3.to('.tex3', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+            t3.to('.tex4', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+            t3.to('.tex5', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+            t3.to('.tex6', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+            t3.to('.tex7', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+            t3.to('.tex8', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+            t3.to('.tex9', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+
+
+
+            /*🔴🔴🔴🔴🔴  섹션 3 아이템 스크롤 🔴🔴🔴🔴🔴 */
+            gsap.to('.section-03 .item_wrap .item-01', {
+                scrollTrigger: {
+                    trigger: '.section-03',
+                    start: 'top 20%',
+                    end: '20% 30%',
+                    /*markers: true, */
+                    scrub: true
+                },
+                'transform': 'translateY(10%)',
+            });
+
+            gsap.to('.section-03 .item_wrap .item-02', {
+                scrollTrigger: {
+                    trigger: '.section-03',
+                    start: 'top 10%',
+                    end: '20% 20%',
+                    /* markers: true, */
+                    scrub: true
+                },
+                'transform': 'translateY(10%)',
+            });
+
+
+            /*🔴🔴🔴🔴🔴  섹션 4 스크롤 애니메이션 🔴🔴🔴🔴🔴 */
+            const texts = document.querySelectorAll('.section-04 .list_wrap .left_text h4');
+            const items = document.querySelectorAll('.section-04 .list_wrap .right_image .item');
+
+            texts.forEach((text, i) => {
+                ScrollTrigger.create({
+                    trigger: text,
+                    start: `top+=${i * 100}vh top`,
+                    end: `top+=${(i + 1) * 100}vh top`,
+                    scrub: true,
+                    /* markers: true, */ 
+                    onEnter: () => setActive(i),
+                    onEnterBack: () => setActive(i),
+                });
+            });
+
+            function setActive(index) {
+                items.forEach((el, i) => {
+                    if (i === index) {
+                        gsap.fromTo(
+                            el,
+                            { opacity: 0, y: 30 },
+                            {
+                                opacity: 1,
+                                y: 0,
+                                duration: 0.8,         // ← 더 느리게
+                                ease: "sine.inOut"     // ← 더 부드럽게
+                            }
+                        );
+                    } else {
+                        gsap.to(el, {
+                            opacity: 0,
+                            duration: 1,
+                            ease: "sine.inOut"
+                        });
+                    }
                 });
 
-
-
-                /* 🔴🔴🔴🔴🔴 섹션1 텍스트 애니메이션 🔴🔴🔴🔴🔴 */
-                gsap.fromTo('.section-01 .inner .text_wrap .text h4', {
-                    'background-size': '0% 100%',
-                    'opacity': '0'
-                }, {
-                    'background-size': '100% 100%',
-                    'opacity': '1',
-                    scrollTrigger: {
-                        trigger: '.section-01 .inner .text_wrap',
-                        pinnedContainer: '.section-01 .inner .text_wrap',
-                        start: '15% 50%',
-                        end: '25% 50%',
-                        scrub: 1,
-                        /*   markers: true */
-
-                    }
-                })
-
-
-                /*🔴🔴🔴🔴🔴  섹션 1 스크롤 애니메이션 🔴🔴🔴🔴🔴 */
-                gsap.registerPlugin(ScrollTrigger);
-
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: '.section-01 .text_wrap',
-                        start: '30% 60%',
-                        end: '90% 40%',
-                        scrub: true,
-                        /* pin: true, */
-                        /*  markers: true  */
-                    }
+                texts.forEach((el, i) => {
+                    el.classList.toggle("active", i === index);
                 });
-
-                tl.to('.first', { opacity: 1, duration: 3 })
-                    .to('.first', { opacity: 0, duration: 3 })
-                    .to('.second', { opacity: 1, duration: 3 })
-                    .to('.second', { opacity: 0, duration: 3 })
-                    .to('.third', { opacity: 1, duration: 3 });
+            }
 
 
-                /*🔴🔴🔴🔴🔴  섹션 1 이미지 스크롤 애니메이션 🔴🔴🔴🔴🔴 */
-                gsap.fromTo(".section-01 .inner .image_wrap .left_box", {
-                    'transform': 'rotate(0) translateX(0)'
+            /*🔴🔴🔴🔴🔴  섹션 5 가로스크롤 애니메이션 🔴🔴🔴🔴🔴 */
 
-                }, {
-                    'transform': 'rotate(-5deg) translateX(-40%)',
-                    scrollTrigger: {
-                        trigger: ".section-01 .inner .image_wrap",
-                        start: "10% 40%",
-                        end: "80% 50%",
-                        /* markers: true,  */
-                        scrub: true,
-                    }
-
-                });
-
-                gsap.fromTo(".section-01 .inner .image_wrap .right_box", {
-                    'transform': 'rotate(0) translateX(0)'
-
-                }, {
-                    'transform': 'rotate(5deg) translateX(40%)',
-                    scrollTrigger: {
-                        trigger: ".section-01 .inner .image_wrap",
-                        start: "10% 40%",
-                        end: "80% 50%",
-                        /* markers: true, */
-                        scrub: true,
-                    }
-
-                });
+            const horizontalScroll = gsap.to(".horizontal-wrapper", {
+                x: () => (document.querySelector(".horizontal-wrapper").scrollWidth - window.innerWidth), // 가로로 스크롤될 거리 계산
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".horizontal-scroll-container", // 스크롤이 발생할 요소
+                    start: "top top", // 트리거 지점: 스크롤 컨테이너의 상단과 뷰포트의 상단이 만나는 지점
+                    end: () => "+=" + (document.querySelector(".horizontal-wrapper").scrollWidth - window.innerWidth), // 전체 가로 길이만큼 스크롤
+                    scrub: true, // 스크롤과 애니메이션 동기화
+                    pin: true, // 요소 고정
+                    anticipatePin: 1, // 스크롤과 고정 간의 자연스러운 전환을 위해 설정
+                    markers: true 
+                }
+            });
+        }); /* script end */
 
 
-
-
-                /*🔴🔴🔴🔴🔴  섹션 2 스크롤 애니메이션 🔴🔴🔴🔴🔴 */
-                const t3 = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: '.section-02 .inner .scroll_right',
-                        start: '10% center',
-                        end: '80% 35%',
-                        scrub: 1,
-                        /* markers: true */
-                    }
-                })
-                t3.to('.tex1, span', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-                t3.to('.tex2', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-                t3.to('.tex3', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-                t3.to('.tex4', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-                t3.to('.tex5', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-                t3.to('.tex6', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-                t3.to('.tex7', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-                t3.to('.tex8', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-                t3.to('.tex9', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-
-
-
-            })  /* script end */
-
-        });
     </script>
 </head>
 
@@ -417,38 +501,175 @@
                         <h3>Blended Essence Collection</h3>
                         <p>스코틀랜드의 헤리티지에서 찾은 모티브로 당신의 피부에 최적화된
                             그루밍 케어와 뷰티 솔루션을 제공합니다.</p>
-                    </div>  <!-- text end -->
+                    </div> <!-- text end -->
 
                     <div class="item_wrap">
-                        <div class="item">
+                        <div class="item item-01">
                             <div class="image">
                                 <img src="img/image.png" alt="">
-                            </div>  <!-- image end -->
+                            </div> <!-- image end -->
                             <div class="text">
                                 <p>블루 블렌디드 토너 에센스</p>
                                 <a href="#">
                                     <span>보러가기</span>
                                     <img src="img/arrow-up-line.png" alt="">
-                                        </a>
-                            </div>  <!-- text end -->
-                        </div>  <!-- item end -->
+                                </a>
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
 
-                        <div class="item">
+                        <div class="item item-02">
                             <div class="image">
                                 <img src="img/image222.png" alt="">
-                            </div>  <!-- image end -->
+                            </div> <!-- image end -->
                             <div class="text">
-                                <p>블루 블렌디드 로션  에센스</p>
+                                <p>블루 블렌디드 로션 에센스</p>
                                 <a href="#">
                                     <span>보러가기</span>
                                     <img src="img/arrow-up-line.png" alt="">
-                                        </a>
-                            </div>  <!-- text end -->
-                        </div>  <!-- item end -->
-                    </div>  <!-- item_wrap end -->
+                                </a>
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                    </div> <!-- item_wrap end -->
                 </div> <!-- inner end -->
             </section> <!-- section-03 end -->
+
+            <section class="section-04">
+                <div class="inner">
+                    <div class="text">
+                        <h3>Product Line</h3>
+                        <p>스콧해미쉬에서 제공하는 여러 라인들이 최상의 컨디션을 유지합니다.</p>
+                    </div> <!-- text end -->
+
+                    <div class="list_wrap">
+                        <div class="left_text">
+                            <h4 class="active">CLEANSING LINE</h4>
+                            <h4>SKIN CARE</h4>
+                            <h4>SUN CARE</h4>
+                            <h4>LIP CARE</h4>
+                            <h4>HAND CARE</h4>
+                        </div> <!-- left_text end -->
+
+                        <div class="right_image">
+                            <div class="item active">
+                                <div class="image">
+                                    <img src="img/image (1).png" alt="">
+                                </div> <!-- image end -->
+                                <div class="text">
+                                    <p>블루 프리덤 캡슐 클렌징 폼</p>
+                                    <span>블루 피토 캡슐로 각질제거 및 진정 효과 세안 후에도 건조함 없이 촉촉한 사용감</span>
+                                </div> <!-- text end    -->
+                            </div> <!-- item end -->
+
+                            <div class="item">
+                                <div class="image">
+                                    <img src="img/image 19.png" alt="">
+                                </div> <!-- image end -->
+                                <div class="text">
+                                    <p>블루 블렌디드 토너 / 로션 에센스</p>
+                                    <span>스코틀랜드의 엉겅퀴에서 추출한 밀크씨슬과
+                                        위스키의 주원료 몰트 블렌딩으로 피부 각질 및 보습케어, 수분까지 관리하는 올인원</span>
+                                </div> <!-- text end    -->
+                            </div> <!-- item end -->
+
+                            <div class="item">
+                                <div class="image">
+                                    <img src="img/image 20.png" alt="">
+                                </div> <!-- image end -->
+                                <div class="text">
+                                    <p>클래식 골프 선크림 / 선스틱</p>
+                                    <span>자외선으로 피부를 보호해주고 백탁 없이 부드러운 발림성의 유기자차로 묻어남 없는 선케어</span>
+                                </div> <!-- text end    -->
+                            </div> <!-- item end -->
+
+                            <div class="item">
+                                <div class="image">
+                                    <img src="img/image 21.png" alt="">
+                                </div> <!-- image end -->
+                                <div class="text">
+                                    <p>스콧해미쉬 커리지 립밥</p>
+                                    <span>블루 피토 캡슐로 각질제거 및 진정 효과 세안 후에도 건조함 없이 촉촉한 사용감</span>
+                                </div> <!-- text end    -->
+                            </div> <!-- item end -->
+
+                            <div class="item">
+                                <div class="image">
+                                    <img src="img/image 22.png" alt="">
+                                </div> <!-- image end -->
+                                <div class="text">
+                                    <p>클레이모어 모이스처 / 브라이트닝 핸드크림</p>
+                                    <span>물유래 스타치와 고분자를 결합한 매트릭스로 부드러운 사용감과 무게감을 주는 향</span>
+                                </div> <!-- text end    -->
+                            </div> <!-- item end -->
+                        </div> <!-- right_image end -->
+                    </div> <!-- list_wrap end -->
+                </div> <!-- inner end -->
+            </section> <!-- section-04 end -->
+
+            <section class="section-05">
+                <div class="inner">
+                    <div class="text">
+                        <h3>Scott Hamish Event</h3>
+                        <p>스콧해미쉬의 다양한 이벤트 즐겨보세요.</p>
+                    </div> <!-- text end -->
+
+
+                    <div class="horizontal-scroll-container">
+                        <div class="horizontal-wrapper">
+                            <div class="horizontal-item">
+                                <a href="#">
+                                    <img src="img/event (1).png" alt="">
+                                </a>
+                                <div class="text">
+                                    <p>스콧해미쉬X글렌크래프트 콜라보 이벤트</p>
+                                    <span></span>
+                                </div> <!-- text end -->
+                            </div> <!-- horizontal-item  end-->
+                            <div class="horizontal-item">
+                                <a href="#">
+                                    <img src="img/event (2).png" alt="">
+                                </a>
+                                <div class="text">
+                                    <p>스콧해미쉬의 첫 공식 엠버서더_심수창님 인터뷰 댓글이벤트</p>
+                                    <span>24.10.01 ~ 24.10.15</span>
+                                </div> <!-- text end -->
+                            </div> <!-- horizontal-item  end-->
+                            <div class="horizontal-item">
+
+                                <a href="#">
+                                    <img src="img/event (3).png" alt="">
+                                </a>
+                                <div class="text">
+                                    <p>어버이날 기념 할인 이벤트</p>
+
+                                </div> <!-- text end -->
+                            </div> <!-- horizontal-item  end-->
+                            <div class="horizontal-item">
+
+                                <a href="#">
+                                    <img src="img/event (4).png" alt="">
+                                </a>
+                                <div class="text">
+                                    <p>U+ 골프 X 스콧해미쉬 스폰서십 8월 이벤트</p>
+                                    <span>25.09.01 ~ 25.09.30</span>
+                                </div> <!-- text end -->
+                            </div> <!-- horizontal-item  end-->
+                            <div class="horizontal-item">
+
+                                <a href="#">
+                                    <img src="img/event (5).png" alt="">
+                                </a>
+
+                            </div> <!-- horizontal-item  end-->
+                            <!-- 가로로 긴 콘텐츠 추가 -->
+                        </div> <!-- horizontal-wrapper end -->
+                    </div> <!-- horizontal-scroll-container end -->
+                </div> <!-- inner end -->
+            </section> <!-- section-05 end -->
         </main> <!-- main end -->
+
+        <footer class="footer">
+
+        </footer>
     </div> <!-- wrap end -->
 </body>
 
