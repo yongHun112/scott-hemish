@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/scott.scss">
     <link rel="stylesheet" href="css/scott.css">
 
+
     <script src="lib/jquery-3.7.1.min.js"></script>
     <script src="https://assets.codepen.io/16327/SplitText3-beta.min.js?b=43"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -34,6 +35,37 @@
             gsap.ticker.add(() => {
                 ScrollTrigger.update();
             });
+
+
+            /* 🔴🔴🔴🔴🔴  cursor 애니메이션 🔴🔴🔴🔴🔴 */
+            /* 
+                        const $cursor = $('.cursor');
+                        let mouseX = 0, mouseY = 0;
+                        let currentX = 0, currentY = 0;
+            
+                        $(window).on('mousemove', function (e) {
+                            mouseX = e.clientX;
+                            mouseY = e.clientY;
+            
+                        });
+                        function animateCursor() {
+                            currentX += (mouseX - currentX) * 0.15;
+                            currentY += (mouseY - currentY) * 0.15;
+                            $cursor.css({
+                                left: currentX + 'px',
+                                top: currentY + 'px'
+                            });
+                            requestAnimationFrame(animateCursor);
+                        }
+                        animateCursor(); // 실행
+            
+                        $('body a').on('mousemove', function () {
+                            $('.cursor').addClass('active');
+                        })
+            
+                        $('body a').on('mouseleave', function () {
+                            $('.cursor').removeClass('active');
+                        }) */
 
 
             /* 🔴🔴🔴🔴🔴 헤더 스크롤 🔴🔴🔴🔴🔴 */
@@ -330,35 +362,18 @@
                 });
             }
 
-
-            /*🔴🔴🔴🔴🔴  섹션 5 가로스크롤 애니메이션 🔴🔴🔴🔴🔴 */
-
-            /*             const horizontalScroll = gsap.to(".horizontal-wrapper", {
-                            x: () => -(document.querySelector(".horizontal-wrapper").scrollWidth - window.innerWidth), // 가로로 스크롤될 거리 계산
-                            ease: "none",
-                            scrollTrigger: {
-                                trigger: ".horizontal-scroll-container", // 스크롤이 발생할 요소
-                                start: "top top", // 트리거 지점: 스크롤 컨테이너의 상단과 뷰포트의 상단이 만나는 지점
-                                end: () => "+=" + (document.querySelector(".horizontal-wrapper").scrollWidth - window.innerWidth), // 전체 가로 길이만큼 스크롤
-                                scrub: true, // 스크롤과 애니메이션 동기화
-                                pin: true, // 요소 고정
-                                anticipatePin: 1, // 스크롤과 고정 간의 자연스러운 전환을 위해 설정
-                                markers: true  
-                            }
-                        }); */
         }); /* script end */
-
-
     </script>
 </head>
 
 <body>
     <div class="wrap">
         <div class="cursor"></div>
+
         <header class="header">
             <div class="inner">
                 <h1 class="logo">
-                    <a href="#"><img src="img/logoyellow.png" alt="로고"></a>
+                    <a href="index.html"><img src="img/logoyellow.png" alt="로고"></a>
                 </h1> <!-- logo end -->
 
                 <nav class="nav">
@@ -391,7 +406,7 @@
                                     </ul> <!-- depth-02 end -->
 
                                 </li> <!-- depth-01 end -->
-                                <li><a href="#" class="depth-01">PRODUCT</a>
+                                <li><a href="subpage.html" class="depth-01">PRODUCT</a>
                                 </li> <!-- depth-01 end -->
 
                                 <li><a href="#" class="depth-01">BOARD</a>
@@ -699,9 +714,123 @@
             </section> <!-- section-05 end -->
         </main> <!-- main end -->
 
-        <footer class="footer">
 
-        </footer>
+        <div class="icon_box">
+            <img src="img/bottom_icon.png" alt="">
+        </div> <!-- icon_box end end-->
+        <footer class="footer">
+            <div class="inner">
+                <div class="top">
+                    <ul class="left">
+                        <li><a href="#">이용안내</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                    </ul> <!-- left end -->
+
+                    <ul class="right">
+                        <li><a href="#">ABOUT</a></li>
+                        <li><a href="#">PRODUCT</a></li>
+                        <li><a href="#">BOARD</a></li>
+                        <li><a href="#">MYPAGE</a></li>
+                    </ul> <!-- right end -->
+                </div> <!-- top end -->
+
+                <div class="center">
+                    <div class="list1">
+                        <strong>070-7777-2893</strong>
+                        <div class="time">
+                            <div class="weekday">
+                                <p class="text_week">WEEKDAY <span>AM 10:00 - PM 18:00 </span></p>
+                            </div> <!-- weekkday -->
+                            <div class="lunch">
+                                <p class="text_lunch">LUNCH <span>PM 12:30 - PM 01:30 </span></p>
+                            </div> <!-- weekkday -->
+                            <div class="close">
+                                <p class="text_close">CLOSED <span>SAT, SUN AND HOLIDAYS</span></p>
+                            </div> <!-- weekkday -->
+                        </div> <!-- time end -->
+                    </div> <!-- first end -->
+
+                    <div class="list2">
+                        <img src="img/logoyellow.png" alt="">
+                    </div> <!-- second end -->
+
+                    <div class="list3">
+                        <div class="image">
+                            <img src="img/scott_gcs.png" alt="">
+                            <span>Scott Hamish는 판매수익의 일부를 지구촌 이웃의 자립을 위해 사용합니다.</span>
+                        </div> <!-- image end  -->
+
+                        <div class="bank">
+                            <strong>Bank INFO</strong>
+                            <p class="number">신한은행 140-012-936538</p>
+                            <p class="name">예금주 <span>(주)체온365</span></p>
+                        </div> <!-- bank end -->
+
+
+                    </div> <!-- third end -->
+                </div> <!-- center end -->
+
+                <div class="bottom">
+                    <div class="list list1">
+                        <div class="left">
+                            <p class="front">법인명(상호)</p>
+                            <p class="back">(주)체온365</p>
+                        </div> <!-- left end -->
+
+                        <div class="line"></div>
+
+                        <div class="right">
+                            <p class="front">대표자(성명)</p>
+                            <p class="back">윤형준</p>
+                        </div> <!-- left end -->
+                    </div> <!-- list1 end -->
+
+                    <div class="list list2">
+                        <div class="left">
+                            <p class="front">사업자 등록번호</p>
+                            <p class="back">730-86-01496</p>
+                        </div> <!-- left end -->
+
+                        <div class="line"></div>
+
+                        <div class="right">
+                            <p class="front">통신판매업 신고</p>
+                            <p class="back">제 202-서울서초-1439 호</p>
+                        </div> <!-- left end -->
+                    </div> <!-- list2 end -->
+
+                    <div class="list list3">
+                        <div class="left">
+                            <p class="front">전화</p>
+                            <p class="back">070-7777-2893</p>
+                        </div> <!-- left end -->
+
+                        <div class="line"></div>
+
+                        <div class="right">
+                            <p class="front">주소</p>
+                            <p class="back">서울특별시 서초구 반포대로 9길 38, 1층</p>
+                        </div> <!-- left end -->
+                    </div> <!-- list3 end -->
+
+                    <div class="list list4">
+                        <div class="left">
+                            <p class="front">개인정보보호 책임자</p>
+                            <p class="back">윤형준</p>
+                        </div> <!-- left end -->
+
+                        <div class="line"></div>
+
+                        <div class="right">
+                            <p class="front">Contact <span>help@cheon365.com </span>for meore information. </p>
+                        </div> <!-- left end -->
+                    </div> <!-- list3 end -->
+
+                    <p>Copyright © 2020 cheon365 Co.,Ltd. All rights reserved.</p>
+                </div> <!-- bottom end -->
+            </div> <!-- inner end -->
+        </footer> <!-- footer end -->
     </div> <!-- wrap end -->
 </body>
 

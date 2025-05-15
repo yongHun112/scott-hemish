@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product</title>
+
+    <link rel="stylesheet" href="css/sub.css">
+    <link rel="stylesheet" href="css/sub.scss">
+
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="https://assets.codepen.io/16327/SplitText3-beta.min.js?b=43"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis"></script>
+
+    <script>
+        $(function () {
+            const categories = document.querySelectorAll(".item_list .category");
+            const itemWraps = document.querySelectorAll(".product_list .item_wrap");
+
+            categories.forEach((category) => {
+                category.addEventListener("click", (e) => {
+                    e.preventDefault();
+
+
+                    const selected = category.classList[1];
+
+
+
+                    // 전체 숨기기
+                    itemWraps.forEach((wrap) => {
+                        wrap.style.display = "none";
+                    });
+
+                    // ALL이면 첫 번째 item_wrap만 보여주기
+                    if (selected === "all") {
+                        if (itemWraps[0]) {
+                            itemWraps[0].style.display = "block";
+                        }
+                    } else {
+                        // 선택된 카테고리와 일치하는 item_wrap들 보여주기
+                        document.querySelectorAll(`.item_wrap[data-category="${selected}"]`).forEach((el) => {
+                            el.style.display = "block";
+                        });
+                    }
+
+                    // active 클래스 처리 (선택 효과)
+                    categories.forEach((el) => el.classList.remove("active"));
+                    category.classList.add("active");
+                });
+            });
+
+            let prevScrollbar = 0; /* 이전 스크롤 위치  */
+            $(window).on('scroll', function () {
+                let scrollBar = $(window).scrollTop();  /* 현재 스크롤 위치 */
+
+                /*                 console.log(prevScrollbar);
+                                console.log(scrollBar); */
+
+
+                if (scrollBar >= prevScrollbar) {
+                    $('.item_list').addClass('active');
+                } else {
+                    $('.item_list').removeClass('active');
+                }
+
+                prevScrollbar = scrollBar;
+
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="inner">
+                <h1 class="logo">
+                    <a href="index.html"><img src="img/logoyellow.png" alt="로고"></a>
+                </h1> <!-- logo end -->
+
+                <nav class="nav">
+
+                    <a href="#" class="menu">
+                        <div class="image">
+                            <img src="img/codex--align-left.svg" alt="">
+                        </div> <!-- image end -->
+                        <p>Menu</p>
+                    </a> <!-- menu end -->
+
+                </nav> <!-- nav end -->
+
+                <nav class="nav_mobile mobile">
+                    <div class="mobile_inner">
+                        <div class="mobile_header">
+                            <h2>Scott Hamish</h2>
+                            <a href="#" class="menu">
+                                <img src="img/humbleicons--times_white.svg" alt="닫기버튼">
+                            </a> <!-- menu active -->
+                        </div> <!-- mobile_header end -->
+
+                        <div class="mobile_info">
+                            <ul class="mobile_gnb">
+                                <li><a href="#" class="depth-01">ABOUT</a>
+                                    <ul class="depth-02">
+                                        <li><a href="#">BRAND</a></li>
+                                        <li><a href="#">SCOTLAND</a></li>
+                                        <li><a href="#">CONTACT</a></li>
+                                    </ul> <!-- depth-02 end -->
+
+                                </li> <!-- depth-01 end -->
+                                <li><a href="subpage.html" class="depth-01">PRODUCT</a>
+                                </li> <!-- depth-01 end -->
+
+                                <li><a href="#" class="depth-01">BOARD</a>
+                                    <ul class="depth-02">
+                                        <li><a href="#">EVENT</a></li>
+                                        <li><a href="#">NEWS</a></li>
+                                        <li><a href="#">Q&A</a></li>
+                                        <li><a href="#">REVIEW</a></li>
+                                    </ul> <!-- depth-02 end -->
+                                </li> <!-- depth-01 end -->
+
+                                <li><a href="#" class="depth-01">MYPAGE</a>
+                                </li> <!-- depth-01 end -->
+
+                            </ul> <!-- mobile gnb end -->
+                        </div> <!-- mobile_info end -->
+
+                    </div> <!-- mobile inner end -->
+                </nav> <!-- mobile end -->
+
+                <div class="option">
+                    <a href="#" class="search">
+                        <img src="img/lets-icons--search.svg" alt="">
+                    </a> <!-- search end -->
+
+                    <a href="#" class="user">
+                        <img src="img/lucide--user-round.svg" alt="">
+                    </a> <!-- search end -->
+                </div> <!-- option end -->
+            </div> <!-- inner end -->
+        </header> <!-- header end -->.
+
+        <section class="product">
+            <ul class="item_list">
+                <li class="category all"><a href="#">ALL</a></li>
+                <li class="category cleansing"><a href="#">CLEANSING</a></li>
+                <li class="category skin"><a href="#">SKIN</a></li>
+                <li class="category suncare"><a href="#">SUNCARE</a></li>
+                <li class="category lip"><a href="#">LIP</a></li>
+                <li class="category handcare"><a href="#">HANDCARE</a></li>
+            </ul> <!-- item_list end -->
+
+            <div class="product_list">
+                <div class="item_wrap" data-category="all">
+                    <div class="item_line">
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item01.png" alt="스콧해미쉬 블루 블렌디드 스페셜 기프트 180ml 2종">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 블루 블렌디드 스페셜 기프트 180ml 2종</p>
+                                <span>스콧해미쉬의 시그니처 제품으로 토너 에센스와 로션 에센스 본품에 클렌징폼 견본을 증정하여 고급 선물세트로 선물용으로 최적화된 제품</span>
+                                <div class="price">
+                                    <span class="before">110,000원</span>
+                                    <strong>99,000원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item02.png" alt="스콧해미쉬 단품5종기획 토너에센스+로션에센스+클렌징폼+선크림+선스틱+쇼핑백">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 단품5종기획 토너에센스+로션에센스+클렌징폼+선크림+선스틱+쇼핑백</p>
+                                <span>미백,주름 개성의 2중 기능성 스킨케어 2종 & 모공 속 미세먼지, 노폐물, 각질제거의 클렌저 & 백탁없는 유기자차, 자외선 차단 SPF 50
+                                    PA++++의 선케어 2종, 저분자5중히알루론산,7종아미노산,페퍼민트잎추출물,비타민C,아데노신,나이아신아마이드,엉겅퀴,몰트</span>
+                                <div class="price">
+                                    <span class="before">195,000원</span>
+                                    <strong>156,000원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item03.png" alt="스콧해미쉬 블루 블렌디드 스페셜 기프트 180ml 2종">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 단품8종기획 토너에센스+로션에센스+선크림+선스틱+클렌징폼+립밤+핸드크림2종+쇼핑백</p>
+                                <span>스콧해미쉬 단품 전체 상품 8종 묶음 기획_토너에센스+로션에센스+선크림+선스틱+클렌징폼+립밤+모이스처핸드크림+브라이트닝핸드크림</span>
+                                <div class="price">
+                                    <span class="before">272,000원</span>
+                                    <strong>217,600원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                    </div> <!-- item_line -->
+                    <div class="item_line">
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item04.png" alt="스콧해미쉬 블루 프리덤 캡슐 클렌징폼 150ml">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 블루 프리덤 캡슐 클렌징폼 150ml</p>
+                                <span>블루 피토캡슐로 각질제거 및 진정효과가 있는
+                                    바하(BHA) 딥 클렌징폼</span>
+                                <div class="price">
+                                    <span class="before">25,000원</span>
+                                    <strong>21,250원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item05.png" alt="스콧해미쉬 블루 블렌디드 토너 에센스 180ml">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 블루 블렌디드 토너 에센스 180ml</p>
+                                <span>워터 타입의 토너와 영양분이 가득한 에센스가 결합된 올인원
+                                    에센스, 보습과 진정성분이 피부결을 정돈하여 피부 컨디션을 끌어올려줍니다. 주름개선, 미백 2중기능성화장품</span>
+                                <div class="price">
+                                    <span class="before">55,000원</span>
+                                    <strong>49,500원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item06.png" alt="스콧해미쉬 블루 블렌디드 로션 에센스 180ml">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 블루 블렌디드 로션 에센스 180ml</p>
+                                <span>로션와 영양분이 가득한 에센스가 결합된 올인원 에센스, 보습과 진정성분이 피부결을 정돈하여 피부 컨디션을 끌어올려줍니다. 주름개선, 미백
+                                    2중기능성화장품</span>
+                                <div class="price">
+                                    <span class="before">55,000원</span>
+                                    <strong>49,500원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                    </div> <!-- item_line -->
+                    <div class="item_line">
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item07.png" alt="스콧해미쉬 비브레이브 올인원 비비 에센스 80ml">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 비브레이브 올인원 비비 에센스 80ml</p>
+                                <span>선크림, 비비크림, 에센스가 한번에 담겨 피부 보습과 커버메이크업으로 자연스러운 톤업, 자외선차단 올인원 BB크림</span>
+                                <div class="price">
+                                    <span class="before">45,000원</span>
+                                    <strong>38,250원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item08.png" alt="스콧해미쉬 블루 블렌디드 토너 에센스 180ml">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 커리지 립밥&케이스 세트 3.5g</p>
+                                <span>입술 보습을 통한 자신감과 용기로 성공을 부르는 립밤. 전쟁에 나가기 전 마지막 세레모니로 부르는 악기 백파이프를 모티브로 탄생한 커리지 립밥.
+                                    선물용으로
+                                    제격인 고급스러운 타탄무늬와 소가죽으로 만든 케이스와 림밥</span>
+                                <div class="price">
+                                    <span class="before">52,000원</span>
+                                    <strong>46,800원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item09.png" alt="스콧해미쉬 커리지 입술케어 립밤 3.5g">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 커리지 입술케어 립밤 3.5g</p>
+                                <span>입술 보습을 통한 자신감과 용기로 성공을 부르는 립밤. 전쟁에 나가기 전 마지막 세레모니로 부르는 악기 백파이프를 모티브로 탄생한 커리지
+                                    립밥</span>
+                                <div class="price">
+                                    <span class="before">33,000원</span>
+                                    <strong>29,700원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                    </div> <!-- item_line -->
+                    <div class="item_line">
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item10.png" alt="스콧해미쉬 단품2종 클래식 골프 선크림 40ml+선스틱18.5g">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 단품2종 클래식 골프 선크림 40ml+선스틱18.5g</p>
+                                <span>백탁없고 끈적임 없이 부드럽게 발리는 자외선 차단 SPF 50+PA++++의 선케어 2종(선크림+선스틱)</span>
+                                <div class="price">
+                                    <span class="before">60,000원</span>
+                                    <strong>51,000원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item11.png" alt="스콧해미쉬 클래식 골프 선크림 SPF++++ 18.5g">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 클래식 골프 선크림 SPF++++ 18.5g</p>
+                                <span>강력한 자외선 차단과 백탁없이 마일드한 선크림</span>
+                                <div class="price">
+                                    <span class="before">25,000원</span>
+                                    <strong>21,250원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item12.png" alt="스콧해미쉬 클래식 골프 선스틱 SPF50+PA++++ 18.5g">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 클래식 골프 선스틱 SPF50+PA++++ 18.5g</p>
+                                <span>강력한 자외선 차단과 백탁없이 마일드한 보송보송 선스틱, 칼라민과 병풀추출물(시카) 성분으로 피부 진정</span>
+                                <div class="price">
+                                    <span class="before">30,000원</span>
+                                    <strong>25,500원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                    </div> <!-- item_line -->
+                    <div class="item_line">
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item13.png" alt="스콧해미쉬 클레이모어 모이스처 핸드크림 50ml">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 클레이모어 모이스처 핸드크림 50ml</p>
+                                <span>내 손을 촉촉하고 건강하게 지켜주는 최고의 보습 무기 모이스춰 핸드크림. 스코틀랜드 전사들의 무기 대형검인 클레이모어를 모티브로 탄생한 주름개선,
+                                    미백
+                                    기능성의 보습 핸드크림</span>
+                                <div class="price">
+                                    <span class="before">22,000원</span>
+                                    <strong>18,700원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item14.png" alt="스콧해미쉬 클레이모어 브라이트닝 핸드크림 50ml">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 클레이모어 브라이트닝 핸드크림 50ml</p>
+                                <span>내 손을 촉촉하고 건강하게 지켜주는 최고의 보습 무기 브라이트닝 핸드크림. 스코틀랜드 전사들의 무기 대형검인 클레이모어를 모티브로 탄생한 주름개선,
+                                    미백
+                                    기능성의 보습&토너 핸드크림</span>
+                                <div class="price">
+                                    <span class="before">22,000원</span>
+                                    <strong>18,700원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item15.png" alt="스콧해미쉬 단품2종기획 클레이모어 모이스처 50ml+브라이트닝 핸드크림 50ml">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 단품2종기획 클레이모어 모이스처 50ml+브라이트닝 핸드크림 50ml</p>
+                                <span>내 손을 촉촉하고 건강하게 지켜주는 최고의 무기 모이스처 핸드크림 & 브라이트닝 핸드크림. 스코틀랜드 전사들의 무기 대형검인 클레이모어를 모티브로
+                                    탄생한
+                                    주름개선, 미백 기능성의 보습&토너 핸드크림</span>
+                                <div class="price">
+                                    <span class="before">44,000원</span>
+                                    <strong>37,400원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                    </div> <!-- item_line -->
+                </div> <!-- item_wrap end -->
+                <div class="item_wrap" data-category="cleansing">
+                    <div class="item_line">
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item04.png" alt="스콧해미쉬 블루 프리덤 캡슐 클렌징폼 150ml">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 블루 프리덤 캡슐 클렌징폼 150ml</p>
+                                <span>블루 피토캡슐로 각질제거 및 진정효과가 있는
+                                    바하(BHA) 딥 클렌징폼</span>
+                                <div class="price">
+                                    <span class="before">25,000원</span>
+                                    <strong>21,250원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                    </div> <!-- item_line -->
+                </div> <!-- item_wrap end -->
+                <div class="item_wrap" data-category="skin">
+                    <div class="item_line">
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item07.png" alt="스콧해미쉬 비브레이브 올인원 비비 에센스 80ml">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 비브레이브 올인원 비비 에센스 80ml</p>
+                                <span>선크림, 비비크림, 에센스가 한번에 담겨 피부 보습과 커버메이크업으로 자연스러운 톤업, 자외선차단 올인원 BB크림</span>
+                                <div class="price">
+                                    <span class="before">45,000원</span>
+                                    <strong>38,250원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item05.png" alt="스콧해미쉬 블루 블렌디드 토너 에센스 180ml">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 블루 블렌디드 토너 에센스 180ml</p>
+                                <span>워터 타입의 토너와 영양분이 가득한 에센스가 결합된 올인원
+                                    에센스, 보습과 진정성분이 피부결을 정돈하여 피부 컨디션을 끌어올려줍니다. 주름개선, 미백 2중기능성화장품</span>
+                                <div class="price">
+                                    <span class="before">55,000원</span>
+                                    <strong>49,500원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item06.png" alt="스콧해미쉬 블루 블렌디드 로션 에센스 180ml">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 블루 블렌디드 로션 에센스 180ml</p>
+                                <span>로션와 영양분이 가득한 에센스가 결합된 올인원 에센스, 보습과 진정성분이 피부결을 정돈하여 피부 컨디션을 끌어올려줍니다. 주름개선, 미백
+                                    2중기능성화장품</span>
+                                <div class="price">
+                                    <span class="before">55,000원</span>
+                                    <strong>49,500원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                    </div> <!-- item_line -->
+                </div> <!-- item_wrap end -->
+                <div class="item_wrap" data-category="suncare">
+                    <div class="item_line">
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item10.png" alt="스콧해미쉬 단품2종 클래식 골프 선크림 40ml+선스틱18.5g">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 단품2종 클래식 골프 선크림 40ml+선스틱18.5g</p>
+                                <span>백탁없고 끈적임 없이 부드럽게 발리는 자외선 차단 SPF 50+PA++++의 선케어 2종(선크림+선스틱)</span>
+                                <div class="price">
+                                    <span class="before">60,000원</span>
+                                    <strong>51,000원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item11.png" alt="스콧해미쉬 클래식 골프 선크림 SPF++++ 18.5g">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 클래식 골프 선크림 SPF++++ 18.5g</p>
+                                <span>강력한 자외선 차단과 백탁없이 마일드한 선크림</span>
+                                <div class="price">
+                                    <span class="before">25,000원</span>
+                                    <strong>21,250원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item12.png" alt="스콧해미쉬 클래식 골프 선스틱 SPF50+PA++++ 18.5g">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 클래식 골프 선스틱 SPF50+PA++++ 18.5g</p>
+                                <span>강력한 자외선 차단과 백탁없이 마일드한 보송보송 선스틱, 칼라민과 병풀추출물(시카) 성분으로 피부 진정</span>
+                                <div class="price">
+                                    <span class="before">30,000원</span>
+                                    <strong>25,500원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                    </div> <!-- item_line -->
+                </div> <!-- item_wrap end -->
+                <div class="item_wrap" data-category="lip">
+                    <div class="item_line">
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item08.png" alt="스콧해미쉬 블루 블렌디드 토너 에센스 180ml">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 커리지 립밥&케이스 세트 3.5g</p>
+                                <span>입술 보습을 통한 자신감과 용기로 성공을 부르는 립밤. 전쟁에 나가기 전 마지막 세레모니로 부르는 악기 백파이프를 모티브로 탄생한 커리지 립밥.
+                                    선물용으로
+                                    제격인 고급스러운 타탄무늬와 소가죽으로 만든 케이스와 림밥</span>
+                                <div class="price">
+                                    <span class="before">52,000원</span>
+                                    <strong>46,800원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item09.png" alt="스콧해미쉬 커리지 입술케어 립밤 3.5g">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 커리지 입술케어 립밤 3.5g</p>
+                                <span>입술 보습을 통한 자신감과 용기로 성공을 부르는 립밤. 전쟁에 나가기 전 마지막 세레모니로 부르는 악기 백파이프를 모티브로 탄생한 커리지
+                                    립밥</span>
+                                <div class="price">
+                                    <span class="before">33,000원</span>
+                                    <strong>29,700원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item none">
+                            <div class="image">
+                                <img src="img/item09.png" alt="스콧해미쉬 커리지 입술케어 립밤 3.5g">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 커리지 입술케어 립밤 3.5g</p>
+                                <span>입술 보습을 통한 자신감과 용기로 성공을 부르는 립밤. 전쟁에 나가기 전 마지막 세레모니로 부르는 악기 백파이프를 모티브로 탄생한 커리지
+                                    립밥</span>
+                                <div class="price">
+                                    <span class="before">33,000원</span>
+                                    <strong>29,700원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                    </div> <!-- item_line -->
+                </div> <!-- item_wrap end -->
+                <div class="item_wrap" data-category="handcare">
+                    <div class="item_line">
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item13.png" alt="스콧해미쉬 클레이모어 모이스처 핸드크림 50ml">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 클레이모어 모이스처 핸드크림 50ml</p>
+                                <span>내 손을 촉촉하고 건강하게 지켜주는 최고의 보습 무기 모이스춰 핸드크림. 스코틀랜드 전사들의 무기 대형검인 클레이모어를 모티브로 탄생한 주름개선,
+                                    미백
+                                    기능성의 보습 핸드크림</span>
+                                <div class="price">
+                                    <span class="before">22,000원</span>
+                                    <strong>18,700원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item14.png" alt="스콧해미쉬 클레이모어 브라이트닝 핸드크림 50ml">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 클레이모어 브라이트닝 핸드크림 50ml</p>
+                                <span>내 손을 촉촉하고 건강하게 지켜주는 최고의 보습 무기 브라이트닝 핸드크림. 스코틀랜드 전사들의 무기 대형검인 클레이모어를 모티브로 탄생한 주름개선,
+                                    미백
+                                    기능성의 보습&토너 핸드크림</span>
+                                <div class="price">
+                                    <span class="before">22,000원</span>
+                                    <strong>18,700원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="img/item15.png" alt="스콧해미쉬 단품2종기획 클레이모어 모이스처 50ml+브라이트닝 핸드크림 50ml">
+                            </div> <!-- image end -->
+                            <div class="text">
+                                <p>스콧해미쉬 단품2종기획 클레이모어 모이스처 50ml+브라이트닝 핸드크림 50ml</p>
+                                <span>내 손을 촉촉하고 건강하게 지켜주는 최고의 무기 모이스처 핸드크림 & 브라이트닝 핸드크림. 스코틀랜드 전사들의 무기 대형검인 클레이모어를 모티브로
+                                    탄생한
+                                    주름개선, 미백 기능성의 보습&토너 핸드크림</span>
+                                <div class="price">
+                                    <span class="before">44,000원</span>
+                                    <strong>37,400원</strong>
+                                </div> <!-- price end -->
+                            </div> <!-- text end -->
+                        </div> <!-- item end -->
+                    </div> <!-- item_line -->
+                </div> <!-- item_wrap end -->
+            </div> <!-- product_list -->
+        </section> <!-- product end -->
+
+
+        <div class="icon_box">
+            <img src="img/bottom_icon.png" alt="">
+        </div> <!-- icon_box end end-->
+        <footer class="footer">
+            <div class="inner">
+                <div class="top">
+                    <ul class="left">
+                        <li><a href="#">이용안내</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                    </ul> <!-- left end -->
+
+                    <ul class="right">
+                        <li><a href="#">ABOUT</a></li>
+                        <li><a href="#">PRODUCT</a></li>
+                        <li><a href="#">BOARD</a></li>
+                        <li><a href="#">MYPAGE</a></li>
+                    </ul> <!-- right end -->
+                </div> <!-- top end -->
+
+                <div class="center">
+                    <div class="list1">
+                        <strong>070-7777-2893</strong>
+                        <div class="time">
+                            <div class="weekday">
+                                <p class="text_week">WEEKDAY <span>AM 10:00 - PM 18:00 </span></p>
+                            </div> <!-- weekkday -->
+                            <div class="lunch">
+                                <p class="text_lunch">LUNCH <span>PM 12:30 - PM 01:30 </span></p>
+                            </div> <!-- weekkday -->
+                            <div class="close">
+                                <p class="text_close">CLOSED <span>SAT, SUN AND HOLIDAYS</span></p>
+                            </div> <!-- weekkday -->
+                        </div> <!-- time end -->
+                    </div> <!-- first end -->
+
+                    <div class="list2">
+                        <img src="img/logoyellow.png" alt="">
+                    </div> <!-- second end -->
+
+                    <div class="list3">
+                        <div class="image">
+                            <img src="img/scott_gcs.png" alt="">
+                            <span>Scott Hamish는 판매수익의 일부를 지구촌 이웃의 자립을 위해 사용합니다.</span>
+                        </div> <!-- image end  -->
+
+                        <div class="bank">
+                            <strong>Bank INFO</strong>
+                            <p class="number">신한은행 140-012-936538</p>
+                            <p class="name">예금주 <span>(주)체온365</span></p>
+                        </div> <!-- bank end -->
+
+
+                    </div> <!-- third end -->
+                </div> <!-- center end -->
+
+                <div class="bottom">
+                    <div class="list list1">
+                        <div class="left">
+                            <p class="front">법인명(상호)</p>
+                            <p class="back">(주)체온365</p>
+                        </div> <!-- left end -->
+
+                        <div class="line"></div>
+
+                        <div class="right">
+                            <p class="front">대표자(성명)</p>
+                            <p class="back">윤형준</p>
+                        </div> <!-- left end -->
+                    </div> <!-- list1 end -->
+
+                    <div class="list list2">
+                        <div class="left">
+                            <p class="front">사업자 등록번호</p>
+                            <p class="back">730-86-01496</p>
+                        </div> <!-- left end -->
+
+                        <div class="line"></div>
+
+                        <div class="right">
+                            <p class="front">통신판매업 신고</p>
+                            <p class="back">제 202-서울서초-1439 호</p>
+                        </div> <!-- left end -->
+                    </div> <!-- list2 end -->
+
+                    <div class="list list3">
+                        <div class="left">
+                            <p class="front">전화</p>
+                            <p class="back">070-7777-2893</p>
+                        </div> <!-- left end -->
+
+                        <div class="line"></div>
+
+                        <div class="right">
+                            <p class="front">주소</p>
+                            <p class="back">서울특별시 서초구 반포대로 9길 38, 1층</p>
+                        </div> <!-- left end -->
+                    </div> <!-- list3 end -->
+
+                    <div class="list list4">
+                        <div class="left">
+                            <p class="front">개인정보보호 책임자</p>
+                            <p class="back">윤형준</p>
+                        </div> <!-- left end -->
+
+                        <div class="line"></div>
+
+                        <div class="right">
+                            <p class="front">Contact <span>help@cheon365.com </span>for meore information. </p>
+                        </div> <!-- left end -->
+                    </div> <!-- list3 end -->
+
+                    <p>Copyright © 2020 cheon365 Co.,Ltd. All rights reserved.</p>
+                </div> <!-- bottom end -->
+            </div> <!-- inner end -->
+        </footer> <!-- footer end -->
+    </div> <!-- wrap end -->
+    </div> <!-- wrap end -->
+
+</body>
+
+</html>
