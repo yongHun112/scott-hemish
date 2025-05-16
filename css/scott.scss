@@ -1708,11 +1708,13 @@ button:hover {
 /* 모바일 */
 @media screen and (max-width: 500px) {
     .header {
+        height: 7rem;
         .inner {
 
             .logo {
-                display: none;
-            }
+                /* display: none; */
+                width: 12rem;
+            } 
 
             .mobile {
                 width: 55%;
@@ -1867,4 +1869,99 @@ button:hover {
             }
         }
     }
+}
+
+@media screen and (max-width: 450px) {
+
+    .header {
+        height: 7rem;
+    }
+
+
+
+    .main{
+        .inner {
+            width: calc(100% - 30px);
+        }
+
+        .main_visual {
+            .inner {
+                .title_box {
+                    margin-bottom: 5rem;
+                    padding-top: 16rem;
+                }
+            }
+        }
+
+
+        .section-01 {
+            &::after {
+                height: 13rem;
+            }
+        }
+
+        .section-02 {
+            height: 235vh;
+            .inner {
+                .scroll_wrap {
+                    height: 188vh;
+                    .scroll_right {
+
+                        .rev {
+                            margin-top: 2rem;
+                            font-size: 3.4rem;
+                        }
+
+                        .rev:last-child {
+                            font-size: 11rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .section-03 {
+
+            &::after {
+                height: 10rem;
+            }
+
+            .inner {
+                .text {
+                    h3 {
+                        font-size: 2.4rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        .inner {
+            .top {
+                .right {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+            }
+
+            .center {
+                .list3 {
+                    .image {
+                        padding: 0 2rem;
+
+                        span {
+                            white-space:unset;
+                        }
+                    }
+                }
+            }
+            .bottom {
+                .front {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+
 }

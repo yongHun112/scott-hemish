@@ -1297,8 +1297,12 @@ button:hover {
 }
 /* 모바일 */
 @media screen and (max-width: 500px) {
+  .header {
+    height: 7rem;
+  }
   .header .inner .logo {
-    display: none;
+    /* display: none; */
+    width: 12rem;
   }
   .header .inner .mobile {
     width: 55%;
@@ -1396,5 +1400,52 @@ button:hover {
   }
   .main .section-04 .list_wrap .right_image .item > .text {
     padding-top: 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .header {
+    height: 7rem;
+  }
+  .main .inner {
+    width: calc(100% - 30px);
+  }
+  .main .main_visual .inner .title_box {
+    margin-bottom: 5rem;
+    padding-top: 16rem;
+  }
+  .main .section-01::after {
+    height: 13rem;
+  }
+  .main .section-02 {
+    height: 235vh;
+  }
+  .main .section-02 .inner .scroll_wrap {
+    height: 188vh;
+  }
+  .main .section-02 .inner .scroll_wrap .scroll_right .rev {
+    margin-top: 2rem;
+    font-size: 3.4rem;
+  }
+  .main .section-02 .inner .scroll_wrap .scroll_right .rev:last-child {
+    font-size: 11rem;
+  }
+  .main .section-03::after {
+    height: 10rem;
+  }
+  .main .section-03 .inner .text h3 {
+    font-size: 2.4rem;
+  }
+  .footer .inner .top .right {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer .inner .center .list3 .image {
+    padding: 0 2rem;
+  }
+  .footer .inner .center .list3 .image span {
+    white-space: unset;
+  }
+  .footer .inner .bottom .front {
+    font-size: 1.2rem;
   }
 }/*# sourceMappingURL=scott.css.map */

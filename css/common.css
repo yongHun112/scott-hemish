@@ -672,8 +672,9 @@ button:hover {
 /* 모바일 */
 @media screen and (max-width: 500px) {
   .header .inner .logo {
-    display: none;
-  }
+    /* display: none; */
+    width: 12rem;
+  } 
   .header .inner .mobile {
     width: 55%;
   }

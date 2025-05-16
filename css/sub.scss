@@ -162,16 +162,46 @@
     }
 }
 
-@media screen and (max-width: 1300px) {
-
-
-}
+@media screen and (max-width: 1300px) {}
 
 @media screen and (max-width: 768px) {
     .product {
+
         .item_list {
             gap: 4rem;
+            flex-wrap: wrap;
+
         }
     }
+
+}
+
+@media screen and (max-width: 500px) {
+    .product {
+
+        .item_list {
+            flex-wrap: wrap;
+
+
+        }
+
+        .product_list {
+            .item_wrap {
+                flex-wrap: wrap;
+                
+                .item_line {
+                    flex-wrap: wrap;
+                    gap: 3rem;
+
+                    .item {
+                        width: 100%;
+
+                    }
+
+                }
+            }
+        }
+    }
+
 
 }
