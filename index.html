@@ -262,10 +262,10 @@
             const t3 = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.section-02 .inner .scroll_right',
-                    start: 'top 30%',
+                    start: 'top 50%',
                     end: '100% 60%',
-                    scrub: true,
-                    /*  markers: true  */
+                    scrub: 1,
+                    /* markers: true   */
                 }
             })
             t3.to('.tex1, span', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
@@ -534,7 +534,7 @@
                             <div class="rev tex6">SMART <span>- 스마트</span></div>
                             <div class="rev tex7">GENEROSITY <span>- 관대함</span></div>
                             <div class="rev tex8">PASSION <span>- 열정</span></div>
-                            <div class="rev tex9">WE HAVE</div>
+                            <div class="rev tex9">WE <br/>HAVE<br/></div>
                         </div> <!-- scroll_right end -->
                     </div> <!-- scroll_wrap end -->
                 </div> <!-- inner end -->

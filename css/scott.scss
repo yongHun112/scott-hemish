@@ -46,7 +46,7 @@
 html,
 body {
     font-size: 62.5%;
-    
+
 }
 
 /* 
@@ -685,8 +685,22 @@ button:hover {
                     z-index: 6;
 
                     .rev:last-child {
+                        position: relative;
+                        margin-top: 16rem;
                         font-size: 14rem;
                         background-image: linear-gradient(to left, #203163 20%, #FECB73 80%);
+                        word-break: keep-all ;
+
+                        &::after {
+                            content: 'TRUST';
+                            background-clip: text;
+                            -webkit-background-clip: text;
+                            background-repeat: no-repeat;
+                            -webkit-text-fill-color: rgb(0, 0, 0, 0.2);
+                            background-image: linear-gradient(to left, #ff0707 20%, #FECB73 80%);
+                            background-size: 0% 100%;
+                        }
+
                     }
 
                     .rev {
@@ -1127,7 +1141,7 @@ button:hover {
     background-color: #203163;
     color: #fff;
     padding: 4rem 0;
-    
+
 
     .inner {
         max-width: 176rem;
@@ -1142,7 +1156,7 @@ button:hover {
             ul {
                 display: flex;
             }
-            
+
             .left {
                 gap: 3rem;
                 font-size: 1.8rem;
@@ -1165,7 +1179,7 @@ button:hover {
 
                 li {
                     &:hover {
-                        color:#FECB73;
+                        color: #FECB73;
                     }
                 }
             }
@@ -1177,7 +1191,7 @@ button:hover {
             justify-content: space-between;
             align-items: center;
 
-            .list1 { 
+            .list1 {
                 display: flex;
                 flex-direction: column;
                 gap: 1.6rem;
@@ -1188,10 +1202,11 @@ button:hover {
                     line-height: 1.2;
                     letter-spacing: 1px;
                 }
+
                 .time {
                     display: flex;
                     flex-direction: column;
-    
+
 
                     p {
                         font-size: 1.8rem;
@@ -1211,6 +1226,7 @@ button:hover {
             .list2 {
 
                 width: 20%;
+
                 img {
                     width: 100%;
                     height: 100%;
@@ -1246,13 +1262,14 @@ button:hover {
                 .bank {
                     display: flex;
                     flex-direction: column;
-                    
+
                     text-align: left;
 
-                    strong{
+                    strong {
                         font-size: 1.8rem;
-                         line-height: 1.6;
+                        line-height: 1.6;
                     }
+
                     p {
                         font-size: 1.8rem;
                         line-height: 1.6;
@@ -1272,8 +1289,9 @@ button:hover {
                 }
             }
         }
+
         .bottom {
-            gap: 1.2rem;    
+            gap: 1.2rem;
             display: flex;
             flex-direction: column;
 
@@ -1285,7 +1303,7 @@ button:hover {
 
             .list {
                 display: flex;
-                gap: 1.2rem;    
+                gap: 1.2rem;
             }
 
             .left,
@@ -1293,16 +1311,18 @@ button:hover {
                 display: flex;
                 gap: 1.2rem;
             }
+
             .front {
                 font-size: 1.6rem;
                 color: rgba(255, 255, 255, 0.6);
                 font-weight: 400;
                 letter-spacing: 1px;
             }
+
             .back {
                 font-size: 1.6rem;
                 color: #fff;
-                 letter-spacing: 1px;
+                letter-spacing: 1px;
             }
 
             .right {
@@ -1311,7 +1331,7 @@ button:hover {
                 }
             }
 
-            & > p {
+            &>p {
                 margin-top: 1.6rem;
                 font-size: 1.4rem;
                 color: rgba(255, 255, 255, 0.6);
@@ -1453,11 +1473,13 @@ button:hover {
             }
 
             .center {
-/*                 flex-wrap: wrap;
+
+                /*                 flex-wrap: wrap;
                 justify-content: center; */
                 .list2 {
                     display: none;
                 }
+
                 .list1,
                 .list3 {
                     width: 45%;
@@ -1644,11 +1666,12 @@ button:hover {
         .inner {
             .top {
                 justify-content: center;
+
                 .left {
                     font-size: 1.6rem;
                 }
 
-                .right{
+                .right {
                     font-size: 1.8rem;
                 }
             }
@@ -1656,10 +1679,10 @@ button:hover {
             .center {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 2rem; 
+                gap: 2rem;
 
 
-                .list1{
+                .list1 {
                     width: 100%;
                     text-align: center;
                 }
@@ -1669,13 +1692,12 @@ button:hover {
                     align-items: center;
 
                     .bank {
-                        p {
-
-                        }
+                        p {}
                     }
 
                     .image {
                         align-items: center;
+
                         span {
                             white-space: nowrap;
                             font-size: 1.4rem;
@@ -1687,6 +1709,7 @@ button:hover {
 
             .bottom {
                 flex-wrap: wrap;
+
                 .front {
                     font-size: 1.4rem;
                     word-break: keep-all;
@@ -1709,12 +1732,13 @@ button:hover {
 @media screen and (max-width: 500px) {
     .header {
         height: 7rem;
+
         .inner {
 
             .logo {
                 /* display: none; */
                 width: 12rem;
-            } 
+            }
 
             .mobile {
                 width: 55%;
@@ -1837,7 +1861,8 @@ button:hover {
         }
 
         .section-04 {
-            padding-bottom: 8rem;
+            padding-bottom: 10rem;
+
             .inner {
 
                 .text {
@@ -1879,7 +1904,7 @@ button:hover {
 
 
 
-    .main{
+    .main {
         .inner {
             width: calc(100% - 30px);
         }
@@ -1902,9 +1927,11 @@ button:hover {
 
         .section-02 {
             height: 235vh;
+
             .inner {
                 .scroll_wrap {
                     height: 188vh;
+
                     .scroll_right {
 
                         .rev {
@@ -1951,11 +1978,12 @@ button:hover {
                         padding: 0 2rem;
 
                         span {
-                            white-space:unset;
+                            white-space: unset;
                         }
                     }
                 }
             }
+
             .bottom {
                 .front {
                     font-size: 1.2rem;

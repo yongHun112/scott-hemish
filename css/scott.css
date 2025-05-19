@@ -557,8 +557,20 @@ button:hover {
   z-index: 6;
 }
 .main .section-02 .inner .scroll_wrap .scroll_right .rev:last-child {
+  position: relative;
+  margin-top: 16rem;
   font-size: 14rem;
   background-image: linear-gradient(to left, #203163 20%, #FECB73 80%);
+  word-break: keep-all;
+}
+.main .section-02 .inner .scroll_wrap .scroll_right .rev:last-child::after {
+  content: "TRUST";
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-repeat: no-repeat;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to left, #ff0707 20%, #FECB73 80%);
+  background-size: 0% 100%;
 }
 .main .section-02 .inner .scroll_wrap .scroll_right .rev {
   margin-top: 8rem;
@@ -1154,7 +1166,7 @@ button:hover {
   }
   .footer .inner .center {
     /*                 flex-wrap: wrap;
-                    justify-content: center; */
+    justify-content: center; */
   }
   .footer .inner .center .list2 {
     display: none;
@@ -1382,7 +1394,7 @@ button:hover {
     height: 12rem;
   }
   .main .section-04 {
-    padding-bottom: 8rem;
+    padding-bottom: 10rem;
   }
   .main .section-04 .inner .text {
     padding-top: 5rem;

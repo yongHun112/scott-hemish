@@ -72,7 +72,7 @@
   } */
 }
 .product .product_list .item_wrap .item_line .item:hover img {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 .product .product_list .item_wrap .item_line .item .image {
   width: 100%;
