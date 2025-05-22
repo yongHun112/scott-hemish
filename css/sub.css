@@ -64,7 +64,7 @@
   align-items: flex-start;
 }
 .product .product_list .item_wrap .item_line .item {
-  width: 28.41%;
+  width: 31.41%;
   height: auto;
   /*                     &.none {
       opacity: 0;
@@ -99,6 +99,12 @@
   line-height: 1.2;
   letter-spacing: 0.3px;
   word-break: keep-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  /* 👈 최대 줄 수 */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .product .product_list .item_wrap .item_line .item .text span {
   font-size: clamp(1.2rem, 1vw + 0.5rem, 1.6rem);
