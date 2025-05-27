@@ -262,10 +262,10 @@
             const t3 = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.section-02 .inner .scroll_right',
-                    start: 'top 50%',
-                    end: '100% 60%',
-                    scrub: 1,
-                    /* markers: true   */
+                    start: 'top center',
+                    end: 'bottom 60%',
+                    scrub: 1.5,
+                    /*  markers: true   */
                 }
             })
             t3.to('.tex1, span', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
