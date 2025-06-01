@@ -150,6 +150,7 @@
 @media screen and (max-width: 500px) {
   .product .item_list {
     flex-wrap: wrap;
+    gap: 2rem;
   }
   .product .product_list .item_wrap {
     flex-wrap: wrap;
@@ -159,6 +160,12 @@
     gap: 3rem;
   }
   .product .product_list .item_wrap .item_line .item {
+    width: 100%;
+  }
+  .footer .inner .top .right {
+    gap: 2.8rem;
+  }
+  .footer .inner .center .list3 .image {
     width: 100%;
   }
 }/*# sourceMappingURL=sub.css.map */

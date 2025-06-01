@@ -1414,6 +1414,9 @@ button:hover {
   .main .section-04 .list_wrap .right_image .item > .text {
     padding-top: 0;
   }
+  .main .section-04 .list_wrap .right_image .item .image {
+    opacity: 0.7;
+  }
 }
 @media screen and (max-width: 450px) {
   .header {

@@ -1885,9 +1885,14 @@ button:hover {
                     position: absolute;
                     width: 100%;
 
+
                     .item {
                         &>.text {
                             padding-top: 0;
+                        }
+
+                        .image {
+                            opacity: 0.7;
                         }
                     }
                 }

@@ -259,11 +259,27 @@
 
 
             /*🔴🔴🔴🔴🔴  섹션 2 스크롤 애니메이션 🔴🔴🔴🔴🔴 */
+            ScrollTrigger.matchMedia({
+                // 데스크탑 전용
+                "(min-width: 501px)": function () {
+                    const t3 = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: '.section-02 .inner .scroll_right',
+                            start: 'top center',
+                            end: 'bottom 60%',
+                            scrub: 1.5,
+                            markers: true   
+                        }
+                    })
+                }
+            });
+
+
             const t3 = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.section-02 .inner .scroll_right',
                     start: 'top center',
-                    end: 'bottom 60%',
+                    end: '70% 60%',
                     scrub: 1.5,
                     /*  markers: true   */
                 }

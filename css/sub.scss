@@ -187,7 +187,11 @@
 
         .item_list {
             flex-wrap: wrap;
+            gap: 2rem;
 
+            &.active {
+
+            }
 
         }
 
@@ -204,6 +208,28 @@
 
                     }
 
+                }
+            }
+
+        }
+    }
+
+    .footer {
+        .inner {
+            .top {
+                .right {
+                    gap: 2.8rem;
+                }
+            }
+
+            .center {
+                .list3 {
+                    .image {
+                        width: 100%;
+                        span {
+                           
+                        }
+                    }
                 }
             }
         }
