@@ -148,6 +148,10 @@
   }
 }
 @media screen and (max-width: 500px) {
+  .header .inner .logo {
+    display: none;
+    width: 12rem;
+  }
   .product .item_list {
     flex-wrap: wrap;
     gap: 2rem;
@@ -164,6 +168,7 @@
   }
   .footer .inner .top .right {
     gap: 2.8rem;
+    flex-wrap: wrap;
   }
   .footer .inner .center .list3 .image {
     width: 100%;

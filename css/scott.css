@@ -1451,6 +1451,9 @@ button:hover {
   .main .section-03 .inner .text h3 {
     font-size: 2.4rem;
   }
+  .main .section-04 {
+    padding-bottom: 14rem;
+  }
   .footer .inner .top .right {
     flex-wrap: wrap;
     justify-content: center;
