@@ -20,7 +20,7 @@
         $(function () {
             /* 🔴🔴🔴🔴🔴  smooth scrolling 🔴🔴🔴🔴🔴 */
             const lenis = new Lenis({
-                duration: 1.5 ,
+                duration: 1.5,
                 easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
                 smooth: true
             });
@@ -260,24 +260,45 @@
 
 
             /*🔴🔴🔴🔴🔴  섹션 2 스크롤 애니메이션 🔴🔴🔴🔴🔴 */
+            ScrollTrigger.matchMedia({
+                // 데스크탑 전용
+                "(min-width: 501px)": function () {
+                    const t3 = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: '.section-02 .inner .scroll_right',
+                            start: 'top center',
+                            end: 'bottom 60%',
+                            scrub: 1.5,
+                            markers: true   
+                        }
+                    })
+                }
+            });
+
+
             const t3 = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.section-02 .inner .scroll_right',
                     start: 'top center',
-                    end: 'bottom 60%',
+                    end: '70% 60%',
                     scrub: 1.5,
                     /*  markers: true   */
                 }
             })
-            t3.to('.tex1, span', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-            t3.to('.tex2', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-            t3.to('.tex3', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-            t3.to('.tex4', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-            t3.to('.tex5', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-            t3.to('.tex6', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-            t3.to('.tex7', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-            t3.to('.tex8', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
-            t3.to('.tex9', { opacity: 1, 'background-size': '100% 100%', duration: 7 })
+
+
+            t3.to('.tex1, span', { opacity: 1, 'background-size': '100% 100%', duration: 3 })
+            t3.to('.tex2', { opacity: 1, 'background-size': '100% 100%', duration: 3 })
+            t3.to('.tex3', { opacity: 1, 'background-size': '100% 100%', duration: 3 })
+            t3.to('.tex4', { opacity: 1, 'background-size': '100% 100%', duration: 3 })
+            t3.to('.tex5', { opacity: 1, 'background-size': '100% 100%', duration: 3 })
+            t3.to('.tex6', { opacity: 1, 'background-size': '100% 100%', duration: 3 })
+            t3.to('.tex7', { opacity: 1, 'background-size': '100% 100%', duration: 3 })
+            t3.to('.tex8', { opacity: 1, 'background-size': '100% 100%', duration: 3 })
+            t3.to('.tex9', { opacity: 1, 'background-size': '100% 100%', duration: 3 })
+
+
+
 
 
 
@@ -535,7 +556,7 @@
                             <div class="rev tex6">SMART <span>- 스마트</span></div>
                             <div class="rev tex7">GENEROSITY <span>- 관대함</span></div>
                             <div class="rev tex8">PASSION <span>- 열정</span></div>
-                            <div class="rev tex9">WE <br/>HAVE<br/></div>
+                            <div class="rev tex9">WE <br />HAVE<br /></div>
                         </div> <!-- scroll_right end -->
                     </div> <!-- scroll_wrap end -->
                 </div> <!-- inner end -->

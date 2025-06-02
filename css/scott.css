@@ -262,9 +262,7 @@ button:hover {
   position: relative;
 }
 .main .main_visual .inner {
-  /*max-width: 176rem;
-  width: calc(100% - 60px);
-  margin: 0 auto; */
+  width: 100%;
 }
 .main .main_visual .inner .title_box {
   padding-top: clamp(11rem, 5vw + 5rem, 15rem);
@@ -1313,7 +1311,7 @@ button:hover {
     height: 7rem;
   }
   .header .inner .logo {
-    /* display: none; */
+    display: none;
     width: 12rem;
   }
   .header .inner .mobile {
@@ -1373,13 +1371,16 @@ button:hover {
     height: 66rem;
   }
   .main .section-02 .inner .scroll_wrap .scroll_right {
-    margin-top: 50rem;
+    margin-top: 30rem;
     margin-left: 3rem;
     gap: 4rem;
     z-index: 0;
   }
   .main .section-02 .inner .scroll_wrap .scroll_right .rev {
     margin-top: 3rem;
+  }
+  .main .section-02 .inner .scroll_wrap .scroll_right .tex9 {
+    margin-top: 10rem !important;
   }
   .main .section-03 {
     padding: 7rem 0;
@@ -1412,6 +1413,9 @@ button:hover {
   }
   .main .section-04 .list_wrap .right_image .item > .text {
     padding-top: 0;
+  }
+  .main .section-04 .list_wrap .right_image .item .image {
+    opacity: 0.7;
   }
 }
 @media screen and (max-width: 450px) {
@@ -1446,6 +1450,9 @@ button:hover {
   }
   .main .section-03 .inner .text h3 {
     font-size: 2.4rem;
+  }
+  .main .section-04 {
+    padding-bottom: 14rem;
   }
   .footer .inner .top .right {
     flex-wrap: wrap;
