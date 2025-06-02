@@ -283,8 +283,8 @@ button:hover {
 
 .header .inner .option a {
     display: block;
-    width: clamp(3rem, 0.38vw + 2.85rem, 3.6rem);
-    height: clamp(3rem, 0.38vw + 2.85rem, 3.6rem);
+    width: clamp(1.5rem, 0.38vw + 2.5rem, 3.6rem);
+    height: clamp(1.5rem, 0.38vw + 2.5rem, 3.6rem);
 }
 
 .header .inner .option a img {
@@ -673,7 +673,7 @@ button:hover {
 @media screen and (max-width: 500px) {
   .header .inner .logo {
     /* display: none; */
-    width: 12rem;
+    width: 10rem;
   } 
   .header .inner .mobile {
     width: 55%;
