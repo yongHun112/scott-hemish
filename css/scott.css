@@ -913,7 +913,7 @@ button:hover {
 }
 .main .section-05 .inner .horizontal-scroll-container .horizontal-wrapper .horizontal-item .text span {
   font-size: clamp(1.2rem, 1vw + 0.6rem, 1.6rem);
-  color: rgba(0, 0, 0, 0.4);
+  color: #aaa;
 }
 
 .footer {
