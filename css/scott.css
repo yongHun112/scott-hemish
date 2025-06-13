@@ -557,7 +557,7 @@ button:hover {
 }
 .main .section-02 .inner .scroll_wrap .scroll_right .rev:last-child {
   position: relative;
-  margin-top: 16rem;
+  margin-top: 30rem;
   font-size: 14rem;
   background-image: linear-gradient(to left, #203163 20%, #FECB73 80%);
   word-break: keep-all;
@@ -1381,7 +1381,7 @@ button:hover {
     margin-top: 3rem;
   }
   .main .section-02 .inner .scroll_wrap .scroll_right .tex9 {
-    margin-top: 10rem !important;
+    margin-top: 43rem !important;
   }
   .main .section-03 {
     padding: 7rem 0;
