@@ -917,6 +917,13 @@ button:hover {
   color: #aaa;
 }
 
+.icon_box {
+  width: 100%;
+}
+.icon_box img {
+  width: 100%;
+}
+
 .footer {
   width: 100%;
   font-family: "Pretendard-Regular";
@@ -1444,6 +1451,7 @@ button:hover {
     font-size: 3.4rem;
   }
   .main .section-02 .inner .scroll_wrap .scroll_right .rev:last-child {
+    margin-top: 19rem !important;
     font-size: 11rem;
   }
   .main .section-03::after {

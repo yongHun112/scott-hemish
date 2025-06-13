@@ -1132,6 +1132,14 @@ button:hover {
     }
 }
 
+.icon_box {
+    width: 100%;
+
+    img {
+        width: 100%;
+    }
+}
+
 .footer {
     width: 100%;
     font-family: 'Pretendard-Regular';
@@ -1946,6 +1954,7 @@ button:hover {
                         }
 
                         .rev:last-child {
+                            margin-top: 19rem !important;
                             font-size: 11rem;
                         }
                     }
